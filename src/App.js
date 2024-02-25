@@ -1,9 +1,7 @@
 import React from 'react';
 import './App.css';
-import DataTable from "./ui/Table/DataTable";
 import {useQuery} from "@tanstack/react-query";
 import axios from "axios";
-import AnimalService from "./services/animal.service";
 import {TableCell, TableRow} from "@mui/material";
 
 function App() {

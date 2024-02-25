@@ -1,7 +1,9 @@
 import {Button, styled, TableBody, TableCell, TableRow} from "@mui/material";
-import {StyledTableRow} from "../StyledTableRow";
 import React from "react";
-import AnimalImageModal from "../../Animal/Modals/AnimalImageModal";
+import AnimalImageModal from "../Modals/AnimalImageModal";
+import StyledTableCell from "../../Table/StyledTableCell";
+import StyledTableRow from "../../Table/StyledTableRow";
+
 
 export const AnimalTableBody = ({animal = [], deleteAnimal, showImage}) => {
     return (
@@ -71,8 +73,6 @@ const ButtonsRowAndModal = ({deleteAnimal, animalId, imageId}) => {
     );
 }
 
-const StyledTableCell = styled(TableCell)({
-    textAlign: 'right'
-});
+
 
 
