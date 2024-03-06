@@ -1,7 +1,9 @@
-import {Button, Paper, Table, TableContainer, TableHead} from "@mui/material";
+import {Button, FormControlLabel, FormGroup, Paper, Table, TableContainer, TableHead} from "@mui/material";
 import {AnimalExtendedTableHead, AnimalTableHead} from "./AnimalTableHead";
 import {AnimalExtendedTableBody, AnimalTableBody} from "./AnimalTableBody";
 import React, {useState} from "react";
+import Switch from '@mui/material/Switch';
+import AnimalNewModal from "../Modals/AnimalNewModal/AnimalNewModal";
 
 const AnimalTable = ({animal, deleteAnimal}) => {
     const [showExtendedInfo, setShowExtendedInfo] = useState(false)
@@ -13,7 +15,10 @@ const AnimalTable = ({animal, deleteAnimal}) => {
 
     return (
         <TableContainer component={Paper}>
-            <Button onClick={toggleInfo}>More Info</Button>
+            <FormGroup>
+                <FormControlLabel control={<Switch onClick={toggleInfo}/>} label="More info" />
+                <AnimalNewModal title={"New animal"}/>
+            </FormGroup>
             <Table>
                 <TableHead>
                     {showExtendedInfo ?

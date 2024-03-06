@@ -3,11 +3,10 @@ import {useMutation, useQueryClient} from "@tanstack/react-query";
 import AnimalService from "../../services/animal.service";
 import {useAnimals} from "../../hooks/useAnimals";
 import AnimalTable from "../../ui/Animal/Table/AnimalTable";
-const AdminHome = () => {
+const AnimalDataTable = () => {
     const {isLoading, error, data: animal} = useAnimals()
 
     const queryClient = useQueryClient()
-
     const {mutate: deleteAnimalMutation} = useMutation({
         mutationFn: (id) => AnimalService.delete(id),
         mutationKey: ['animalDelete'],
@@ -26,9 +25,9 @@ const AdminHome = () => {
 
     return (
         <div>
-            <AnimalTable animal={animal} deleteAnimal={deleteAnimalMutation}/>
+            <AnimalTable animal={animal.data} deleteAnimal={deleteAnimalMutation}/>
         </div>
     );
 };
 
-export default AdminHome;
+export default AnimalDataTable;

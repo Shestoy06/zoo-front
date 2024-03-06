@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import s from './index.css';
 import reportWebVitals from './reportWebVitals';
 import Router from "./components/Router";
 import {QueryClient, QueryClientProvider} from "@tanstack/react-query";
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -11,7 +12,8 @@ const queryClient = new QueryClient()
 root.render(
   <React.StrictMode>
       <QueryClientProvider client={queryClient}>
-          <Router />
+          <ReactQueryDevtools initialIsOpen={false} />
+          <Router className={s.root} queryClient={queryClient}/>
       </QueryClientProvider>
   </React.StrictMode>
 );

@@ -1,11 +1,13 @@
 import {Button, styled, TableBody, TableCell, TableRow} from "@mui/material";
 import React from "react";
-import AnimalImageModal from "../Modals/AnimalImageModal";
+import AnimalImageModal from "../Modals/AnimalImageModal/AnimalImageModal";
 import StyledTableCell from "../../Table/StyledTableCell";
 import StyledTableRow from "../../Table/StyledTableRow";
+import AnimalModifyModal from "../Modals/AnimalModifyModal/AnimalModifyModal";
+import {format} from "date-fns";
 
 
-export const AnimalTableBody = ({animal = [], deleteAnimal, showImage}) => {
+export const AnimalTableBody = ({animal, deleteAnimal, showImage}) => {
     return (
         <TableBody>
             {
@@ -18,10 +20,12 @@ export const AnimalTableBody = ({animal = [], deleteAnimal, showImage}) => {
                         <StyledTableCell>{row.details === null ? '-' : row.details}</StyledTableCell>
                         <StyledTableCell>{row.animalImages ? row.animalImages.map(el => el.ImageFileName) : "-"}</StyledTableCell>
                         <StyledTableCell>
-                            <ButtonsRowAndModal animalId={row.id}
-                                        imageId={row.animalImages.length ? row.animalImages.map(el => el.id) : null}
-                                        deleteAnimal={deleteAnimal}
-                                        showImage={showImage}/>
+                            <ButtonsRowAndModal
+                                animal={row}
+                                animalId={row.id}
+                                imageId={row.animalImages.length ? row.animalImages.map(el => el.id) : null}
+                                deleteAnimal={deleteAnimal}
+                                showImage={showImage}/>
                         </StyledTableCell>
                     </StyledTableRow>
                 ))
@@ -42,14 +46,16 @@ export const AnimalExtendedTableBody = ({animal = [], deleteAnimal, showImage}) 
                         <StyledTableCell>{row.vet_review}</StyledTableCell>
                         <StyledTableCell>{row.food_type}</StyledTableCell>
                         <StyledTableCell>{row.food_quantity}</StyledTableCell>
-                        <StyledTableCell>{row.last_review}</StyledTableCell>
+                        <StyledTableCell>{format(new Date(row.last_review ), 'dd-MM-yyyy')}</StyledTableCell>
                         <StyledTableCell>{row.details === null ? '-' : row.details}</StyledTableCell>
                         <StyledTableCell>{row.animalImages ? row.animalImages.map(el => el.ImageFileName) : "-"}</StyledTableCell>
                         <StyledTableCell>
-                            <ButtonsRowAndModal animalId={row.id}
-                                        imageId={row.animalImages.length ? row.animalImages.map(el => el.id) : null}
-                                        deleteAnimal={deleteAnimal}
-                                        showImage={showImage}/>
+                            <ButtonsRowAndModal
+                                animal={row}
+                                animalId={row.id}
+                                imageId={row.animalImages.length ? row.animalImages.map(el => el.id) : null}
+                                deleteAnimal={deleteAnimal}
+                                showImage={showImage}/>
                         </StyledTableCell>
                     </StyledTableRow>
                 ))
@@ -58,7 +64,7 @@ export const AnimalExtendedTableBody = ({animal = [], deleteAnimal, showImage}) 
     )
 }
 
-const ButtonsRowAndModal = ({deleteAnimal, animalId, imageId}) => {
+const ButtonsRowAndModal = ({deleteAnimal, animalId, imageId, animal}) => {
 
     const handleDeleteAnimal = () => {
         deleteAnimal(animalId)
@@ -66,7 +72,7 @@ const ButtonsRowAndModal = ({deleteAnimal, animalId, imageId}) => {
 
     return (
         <div style={{ display: 'inline-flex', gap: '8px', textAlign: 'right' }}>
-            <Button style={{ textTransform: 'none', backgroundColor: "#e09900" }}  disableElevation variant="contained">Modify</Button>
+            <AnimalModifyModal title={'Modify animal'} animal={animal}/>
             <Button style={{ textTransform: 'none', backgroundColor: "#cb1c4e" }}  disableElevation variant="contained" onClick={handleDeleteAnimal} >Delete</Button>
             <AnimalImageModal imageId={imageId} animalId={animalId}/>
         </div>

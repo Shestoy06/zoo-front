@@ -10,7 +10,7 @@ const Home = () => {
     }, []);
 
     const getImage = () => {
-        axios.get('http://127.0.0.1:8000/api/animal/18/image', {
+        axios.get('http://127.0.0.1:8000/api/animal/1/image', {
             responseType: 'arraybuffer',
         }).then(
             res => {
