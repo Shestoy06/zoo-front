@@ -3,7 +3,7 @@ import axios from "axios";
 class AnimalService {
     URL = 'http://127.0.0.1:8000/api/animal'
     async getAll() {
-        return axios.get(this.URL)
+        return axios.get(this.URL).then(res => res.data)
     }
 
     async delete(id) {
@@ -12,6 +12,16 @@ class AnimalService {
 
     async getAnimalImage(animalId) {
         return axios.get(`${this.URL}/${animalId}/image`).then(res => res.data)
+    }
+
+    async deleteAnimalImage(animalId, imageId) {
+        return axios.delete(`${this.URL}/${animalId}/image/${imageId}`).then(res => res.data)
+    }
+
+    async postAnimalImage(animalId, animalImage) {
+        return axios.post(`${this.URL}/${animalId}/image`, {
+            animalImages: animalImage
+        }).then(res => res.data)
     }
 
     async put(animal) {

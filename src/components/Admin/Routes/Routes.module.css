@@ -1,0 +1,10 @@
+.flexWrapper {
+    display: grid;
+    grid-template-columns: 225px 1fr;
+}
+
+.content {
+    padding: 50px 20px 0;
+    min-height: calc(100vh - 50px);
+    background-color: rgba(238, 238, 238, 0.6);
+}

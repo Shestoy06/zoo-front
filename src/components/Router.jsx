@@ -1,18 +1,28 @@
 import {BrowserRouter, Routes, Route, Navigate} from "react-router-dom"
-import Home from "./Client/Home/Home";
-import App from "../App";
-import AnimalDataTable from "./Admin/AnimalDataTable";
-const Router = () => {
-    // <Route element={<Navigate to={'/'} />} path='*'></Route>
+import AdminRoutes from "./Admin/Routes/AdminRoutes";
+import React from "react";
+import EmployeeRoutes from "./Admin/Routes/EmployeeRoutes";
 
+const Router = () => {
+    const user = "employee"
+
+    if (user === "admin") {
+        return (
+            <AdminRoutes/>
+        )
+    } else if (user === "employee") {
+        return <EmployeeRoutes/>
+    }
 
     return (
-        <BrowserRouter>
-            <Routes>
-                <Route element={<App />} path='/'></Route>
-                <Route element={<AnimalDataTable/>} path={'/admin'}></Route>
-            </Routes>
-        </BrowserRouter>
+
+        <Routes>
+            <Route element={<Navigate to={'/'} />} path='*'></Route>
+            <Route element={<div></div>} path='/'></Route>
+            <AdminRoutes/>
+            <EmployeeRoutes/>
+        </Routes>
+
     )
 }
 
