@@ -3,7 +3,7 @@ import {useMutation, useQuery, useQueryClient} from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import {CircularProgress} from "@mui/joy";
 import ServicesService from "../../../services/services.service";
-import CrudTable from "./CrudTable";
+import CrudTable from "../ui/DataTable/CrudTable";
 
 
 const ServicesDataTable = () => {
@@ -80,7 +80,6 @@ const ServicesDataTable = () => {
             headerAlign: 'left',
             editable: true,
             flex: 1,
-            //width: 400
         },
     ];
 

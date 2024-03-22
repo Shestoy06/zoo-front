@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import CrudTable from "../../DataTables/CrudTable";
+import CrudTable from "../../ui/DataTable/CrudTable";
 import {useMutation, useQuery, useQueryClient} from "@tanstack/react-query";
 import FoodService from "../../../../services/food.service";
 import toast from "react-hot-toast";

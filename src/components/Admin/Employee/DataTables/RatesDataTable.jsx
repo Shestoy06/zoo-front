@@ -4,7 +4,7 @@ import toast from "react-hot-toast";
 import {CircularProgress} from "@mui/joy";
 import moment from "moment";
 import RatesService from "../../../../services/rates.service";
-import CrudTable from "../../DataTables/CrudTable";
+import CrudTable from "../../ui/DataTable/CrudTable";
 
 
 const RatesDataTable = () => {

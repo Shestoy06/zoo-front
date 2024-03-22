@@ -9,18 +9,22 @@ import {
     gridVisibleColumnDefinitionsSelector,
 } from '@mui/x-data-grid';
 import {useGridApiRef,} from '@mui/x-data-grid-pro';
-import TableModifyButton from "../ui/Buttons/TableModifyButton/TableModifyButton";
-import TableDeleteButton from "../ui/Buttons/TableDeleteButton/TableDeleteButton";
-import TableSaveButton from "../ui/Buttons/TableSaveButton/TableSaveButton";
-import TableNewButton from "../ui/Buttons/TableNewButton/TableNewButton";
+import TableModifyButton from "../Buttons/TableModifyButton/TableModifyButton";
+import TableDeleteButton from "../Buttons/TableDeleteButton/TableDeleteButton";
+import TableSaveButton from "../Buttons/TableSaveButton/TableSaveButton";
+import TableNewButton from "../Buttons/TableNewButton/TableNewButton";
 import {useEffect, useRef, useState} from "react";
-import TableCancelButton from "../ui/Buttons/TableCancelButton/TableCancelButton";
+import TableCancelButton from "../Buttons/TableCancelButton/TableCancelButton";
 import {Box, CircularProgress} from "@mui/joy";
 import {gridClasses} from "@mui/system";
 import toast from "react-hot-toast";
 import {styled} from "@mui/material";
+import ImageModal from "../Modal/ImageModal";
 
-const CrudTable = ({columns, data, onDelete, onCreate, onUpdate, title, withToolBar, autoHeight = false }) => {
+const CrudTable = ({columns, data,
+                       onDelete, onCreate, onUpdate,
+                       title, withToolBar, autoHeight = false,
+                       imageModal = false, postImage, getImages, imageData, deleteImage}) => {
 
     const [rows, setRows] = React.useState(data);
     const [rowModesModel, setRowModesModel] = React.useState({});
@@ -104,7 +108,7 @@ const CrudTable = ({columns, data, onDelete, onCreate, onUpdate, title, withTool
             field: 'actions',
             type: 'actions',
             headerName: 'Actions',
-            width: 140,
+            width: 180,
             align: 'center',
             cellClassName: 'actions',
             disableClickEventBubbling: true,
@@ -118,9 +122,17 @@ const CrudTable = ({columns, data, onDelete, onCreate, onUpdate, title, withTool
                     ];
                 }
 
+                if(imageModal) {
+                    return [
+                        <TableModifyButton onClick={handleEditClick(id)}/>,
+                        <TableDeleteButton onClick={handleDeleteClick(id)}/>,
+                        <ImageModal id={id} postImage={postImage} getImages={getImages} imageData={imageData} deleteImage={deleteImage}/>
+                    ];
+                }
+
                 return [
                     <TableModifyButton onClick={handleEditClick(id)}/>,
-                    <TableDeleteButton onClick={handleDeleteClick(id)}/>
+                    <TableDeleteButton onClick={handleDeleteClick(id)}/>,
                 ];
             },
         },]

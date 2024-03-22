@@ -31,6 +31,8 @@ const AnimalImageModal = ({imageId, animalId}) => {
         }
     })
 
+
+
     const setImageFile = (files) => {
         const promises = files.map(file => {
             return new Promise((resolve, reject) => {

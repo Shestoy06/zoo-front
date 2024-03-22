@@ -5,7 +5,7 @@ import {CircularProgress} from "@mui/joy";
 import moment from "moment";
 import ReviewsService from "../../../services/reviews.service";
 import {useAnimals} from "../../../hooks/useAnimals";
-import CrudTable from "./CrudTable";
+import CrudTable from "../ui/DataTable/CrudTable";
 
 
 const FoodDataTable = () => {

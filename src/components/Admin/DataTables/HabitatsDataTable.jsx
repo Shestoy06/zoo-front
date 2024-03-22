@@ -4,7 +4,9 @@ import toast from "react-hot-toast";
 import {CircularProgress} from "@mui/joy";
 import moment from "moment";
 import HabitatService from "../../../services/habitat.service";
-import CrudTable from "./CrudTable";
+import CrudTable from "../ui/DataTable/CrudTable";
+import ImageModal from "../ui/Modal/ImageModal";
+import AnimalService from "../../../services/animal.service";
 
 
 const RatesDataTable = () => {
@@ -30,7 +32,6 @@ const RatesDataTable = () => {
         }
     })
 
-
     const {mutate: putMutation} = useMutation({
         mutationFn: (rate) => HabitatService.put(rate),
         mutationKey: ['putHabitat'],
@@ -40,6 +41,32 @@ const RatesDataTable = () => {
                 icon: '✏️',
             });
         },
+    })
+
+    const [imageData, setImageData] = useState([])
+
+
+    const getImages = (id) => {
+        HabitatService.getImage(id).then(
+            res => setImageData(res)
+        )
+    }
+
+    const {mutate: postImageMutation} = useMutation({
+        mutationFn: (image) => HabitatService.postImage(image),
+        mutationKey: ['habitatPostImage'],
+        onSuccess: (habitat) => {
+            getImages(habitat.id)
+            queryClient.invalidateQueries({queryKey: ['habitat']})
+        }
+    })
+
+    const {mutate: deleteImageMutation} = useMutation({
+        mutationFn: (image) => HabitatService.deleteImage(image),
+        mutationKey: ['habitatDeleteImage'],
+        onSuccess: (habitat) => {
+            getImages(habitat.id)
+        }
     })
 
     if (isLoading) {
@@ -85,7 +112,13 @@ const RatesDataTable = () => {
             isLoading={isFetching}
             title={'Habitats'}
             withToolBar={false}
-            autoHeight={true}/>
+            autoHeight={true}
+
+            imageModal={true}
+            getImages={getImages}
+            imageData={imageData}
+            postImage={postImageMutation}
+            deleteImage={deleteImageMutation}/>
     );
 };
 
