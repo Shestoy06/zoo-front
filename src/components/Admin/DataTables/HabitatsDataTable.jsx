@@ -9,7 +9,7 @@ import ImageModal from "../ui/Modal/ImageModal";
 import AnimalService from "../../../services/animal.service";
 
 
-const RatesDataTable = () => {
+const HabitatsDataTable = () => {
 
     let {data, isLoading, error, isFetching} = useQuery({
         queryFn: () => HabitatService.get(),
@@ -33,7 +33,7 @@ const RatesDataTable = () => {
     })
 
     const {mutate: putMutation} = useMutation({
-        mutationFn: (rate) => HabitatService.put(rate),
+        mutationFn: (habitat) => HabitatService.put(habitat),
         mutationKey: ['putHabitat'],
         onSuccess: () => {
             invalidateData()
@@ -41,6 +41,18 @@ const RatesDataTable = () => {
                 icon: '✏️',
             });
         },
+    })
+
+    const {mutate: postMutation} = useMutation({
+        mutationFn: (habitat) => HabitatService.post(habitat),
+        mutationKey: ['postHabitat'],
+        onSuccess: () => {
+            invalidateData()
+            toast.success('New habitat created!')
+        },
+        onError: (error) => {
+            alert(error)
+        }
     })
 
     const [imageData, setImageData] = useState([])
@@ -107,11 +119,12 @@ const RatesDataTable = () => {
         <CrudTable
             columns={columns}
             data={data.error ? [] : data}
+            onCreate={postMutation}
             onDelete={deleteMutation}
             onUpdate={putMutation}
             isLoading={isFetching}
             title={'Habitats'}
-            withToolBar={false}
+            withToolBar={true}
             autoHeight={true}
 
             imageModal={true}
@@ -122,4 +135,4 @@ const RatesDataTable = () => {
     );
 };
 
-export default RatesDataTable;
+export default HabitatsDataTable;

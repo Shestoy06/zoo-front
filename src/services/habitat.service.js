@@ -8,8 +8,7 @@ class HabitatService {
         return axios.get(this.URL).then(res => res.data)
     }
 
-    async put(body) {
-        const {habitat} = body
+    async put(habitat) {
         return axios.put(`${this.URL}/${habitat.id}`, {
             id: habitat.id,
             name: habitat.name,
@@ -17,10 +16,8 @@ class HabitatService {
         }).then(res => res.data)
     }
 
-    async post(body) {
-        const {habitat} = body
+    async post(habitat) {
         return axios.post(`${this.URL}`, {
-            id: habitat.id,
             name: habitat.name,
             comment: habitat.comment
         }).then(res => res.data)

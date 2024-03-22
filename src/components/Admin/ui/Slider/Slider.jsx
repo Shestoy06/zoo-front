@@ -57,7 +57,7 @@ const Slider = ({images, animalId, setImageFile, deleteImage}) => {
 
                         : <div>No images</div>}
 
-                </div> : <div></div>}
+                </div> : <div>No images!</div>}
             {images.length ?
                 <div className={s.buttonsContainer}>
                     <div onClick={decrement} className={s.button}><ArrowBackIosIcon/></div>

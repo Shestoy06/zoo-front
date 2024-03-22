@@ -25,7 +25,6 @@ const AdminRoutes = () => {
                     <Route element={<Navigate to={'/admin/animals'} />} path='*'></Route>
                 </Routes>
             </div>
-
         </div>
     )
 };
