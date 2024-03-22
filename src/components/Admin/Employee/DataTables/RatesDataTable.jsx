@@ -1,50 +1,42 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {useMutation, useQuery, useQueryClient} from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import {CircularProgress} from "@mui/joy";
-import ServicesService from "../../../services/services.service";
-import CrudTable from "./CrudTable";
+import moment from "moment";
+import RatesService from "../../../../services/rates.service";
+import CrudTable from "../../DataTables/CrudTable";
 
 
-const ServicesDataTable = () => {
+const RatesDataTable = () => {
 
-    let {data, isLoading, error} = useQuery({
-        queryFn: () => ServicesService.get(),
-        queryKey: ['services']
+    let {data, isLoading, error, isFetching} = useQuery({
+        queryFn: () => RatesService.get(),
+        queryKey: ['rates']
     })
 
     const invalidateData = () => {
-        queryClient.invalidateQueries({queryKey: ['services']})
+        queryClient.invalidateQueries({queryKey: ['rates']})
     }
 
     const queryClient = useQueryClient()
     const {mutate: deleteMutation} = useMutation({
-        mutationFn: (id) => ServicesService.delete(id),
-        mutationKey: ['deleteService'],
+        mutationFn: (id) => RatesService.delete(id),
+        mutationKey: ['rateDelete'],
         onSuccess: () => {
             invalidateData()
-            toast('Service deleted', {
+            toast('Rate deleted', {
                 icon: '🗑️',
             });
         }
     })
 
-    const {mutate: postMutation} = useMutation({
-        mutationFn: (service,) => ServicesService.post(service),
-        mutationKey: ['postService'],
-        onSuccess: () => {
-            invalidateData()
-            toast.success("New service added!")
-        },
-    })
-
 
     const {mutate: putMutation} = useMutation({
-        mutationFn: (service) => ServicesService.put(service),
-        mutationKey: ['putService'],
+        mutationFn: (rate) => RatesService.put(rate),
+        mutationKey: ['putFood'],
         onSuccess: () => {
             invalidateData()
-            toast('Service modified!', {
+            toast('Food recording modified!', {
                 icon: '✏️',
             });
         },
@@ -66,22 +58,30 @@ const ServicesDataTable = () => {
             align: 'center',
             headerAlign: 'center', },
         {
-            field: 'name',
-            headerName: 'Name',
-            width: 150,
+            field: 'pseudo',
+            headerName: 'Pseudo',
+            width: 80,
             align: 'left',
             headerAlign: 'left',
-            editable: true,
+            editable: false,
         },
         {
-            field: 'description',
-            headerName: 'Description',
+            field: 'message',
+            headerName: 'Message',
             align: 'left',
             headerAlign: 'left',
-            editable: true,
-            flex: 1,
-            //width: 400
+            editable: false,
+            flex: 1
         },
+        {
+            field: 'status',
+            headerName: 'Status',
+            width: 180,
+            editable: true,
+            type: 'singleSelect',
+            valueOptions: ['Waiting', 'Accepted', 'Refused'],
+        },
+
     ];
 
     return (
@@ -90,11 +90,11 @@ const ServicesDataTable = () => {
             data={data.error ? [] : data}
             onDelete={deleteMutation}
             onUpdate={putMutation}
-            isLoading={isLoading}
-            title={'Services'}
-            withToolBar={true}
+            isLoading={isFetching}
+            title={'Rates'}
+            withToolBar={false}
             autoHeight={true}/>
     );
 };
 
-export default ServicesDataTable;
+export default RatesDataTable;

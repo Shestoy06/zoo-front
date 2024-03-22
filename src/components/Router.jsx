@@ -4,7 +4,7 @@ import React from "react";
 import EmployeeRoutes from "./Admin/Routes/EmployeeRoutes";
 
 const Router = () => {
-    const user = "employee"
+    const user = "admin"
 
     if (user === "admin") {
         return (

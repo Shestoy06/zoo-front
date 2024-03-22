@@ -2,6 +2,8 @@ import React from 'react';
 import s from "./Navbar.module.css";
 import {NavLink} from "react-router-dom";
 import StarIcon from '@mui/icons-material/Star';
+import LocalDiningIcon from '@mui/icons-material/LocalDining';
+import LocalActivityIcon from "@mui/icons-material/LocalActivity";
 
 const EmployeeNavbar = () => {
     return (
@@ -22,7 +24,15 @@ const EmployeeNavbar = () => {
                     isTransitioning ? "transitioning" : "",
                     s.link
                 ].join(" ")
-            }> <StarIcon/>Food</NavLink>
+            }> <LocalDiningIcon/>Animal food</NavLink>
+            <NavLink to={"/admin/services"} className={({ isActive, isPending, isTransitioning }) =>
+                [
+                    isPending ? "pending" : "",
+                    isActive ? s.active : "",
+                    isTransitioning ? "transitioning" : "",
+                    s.link
+                ].join(" ")
+            }> <LocalActivityIcon/> Services</NavLink>
         </div>
     );
 }

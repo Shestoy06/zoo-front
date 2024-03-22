@@ -1,50 +1,42 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {useMutation, useQuery, useQueryClient} from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import {CircularProgress} from "@mui/joy";
-import ServicesService from "../../../services/services.service";
+import moment from "moment";
+import HabitatService from "../../../services/habitat.service";
 import CrudTable from "./CrudTable";
 
 
-const ServicesDataTable = () => {
+const RatesDataTable = () => {
 
-    let {data, isLoading, error} = useQuery({
-        queryFn: () => ServicesService.get(),
-        queryKey: ['services']
+    let {data, isLoading, error, isFetching} = useQuery({
+        queryFn: () => HabitatService.get(),
+        queryKey: ['habitat']
     })
 
     const invalidateData = () => {
-        queryClient.invalidateQueries({queryKey: ['services']})
+        queryClient.invalidateQueries({queryKey: ['habitat']})
     }
 
     const queryClient = useQueryClient()
     const {mutate: deleteMutation} = useMutation({
-        mutationFn: (id) => ServicesService.delete(id),
-        mutationKey: ['deleteService'],
+        mutationFn: (id) => HabitatService.delete(id),
+        mutationKey: ['habitatDelete'],
         onSuccess: () => {
             invalidateData()
-            toast('Service deleted', {
+            toast('Habitat deleted', {
                 icon: '🗑️',
             });
         }
     })
 
-    const {mutate: postMutation} = useMutation({
-        mutationFn: (service,) => ServicesService.post(service),
-        mutationKey: ['postService'],
-        onSuccess: () => {
-            invalidateData()
-            toast.success("New service added!")
-        },
-    })
-
 
     const {mutate: putMutation} = useMutation({
-        mutationFn: (service) => ServicesService.put(service),
-        mutationKey: ['putService'],
+        mutationFn: (rate) => HabitatService.put(rate),
+        mutationKey: ['putHabitat'],
         onSuccess: () => {
             invalidateData()
-            toast('Service modified!', {
+            toast('Habitat modified!', {
                 icon: '✏️',
             });
         },
@@ -68,20 +60,20 @@ const ServicesDataTable = () => {
         {
             field: 'name',
             headerName: 'Name',
-            width: 150,
+            width: 80,
             align: 'left',
             headerAlign: 'left',
             editable: true,
         },
         {
-            field: 'description',
-            headerName: 'Description',
+            field: 'comment',
+            headerName: 'Comment',
             align: 'left',
             headerAlign: 'left',
             editable: true,
-            flex: 1,
-            //width: 400
+            flex: 1
         },
+
     ];
 
     return (
@@ -90,11 +82,11 @@ const ServicesDataTable = () => {
             data={data.error ? [] : data}
             onDelete={deleteMutation}
             onUpdate={putMutation}
-            isLoading={isLoading}
-            title={'Services'}
-            withToolBar={true}
+            isLoading={isFetching}
+            title={'Habitats'}
+            withToolBar={false}
             autoHeight={true}/>
     );
 };
 
-export default ServicesDataTable;
+export default RatesDataTable;

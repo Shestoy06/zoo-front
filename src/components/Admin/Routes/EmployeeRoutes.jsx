@@ -3,8 +3,8 @@ import s from "./Routes.module.css";
 import {Toaster} from "react-hot-toast";
 import {Navigate, Route, Routes} from "react-router-dom";
 import EmployeeNavbar from "../ui/Navbar/EmployeeNavbar";
-import RatesDataTable from "../Employee/RatesDataTable";
-import FullFeaturedCrudGrid from "../Employee/DataTables/Food/FoodDataTable";
+import RatesDataTable from "../Employee/DataTables/RatesDataTable";
+import FullFeaturedCrudGrid from "../Employee/DataTables/FoodDataTable";
 
 
 const EmployeeRoutes = () => {
