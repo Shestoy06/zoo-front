@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter, Navigate, NavLink, Route, Routes} from "react-router-dom";
+import {Navigate, Route, Routes} from "react-router-dom";
 import AnimalDataTable from "../DataTables/AnimalDataTable";
 import Navbar from "../ui/Navbar/Navbar";
 import s from './Routes.module.css'

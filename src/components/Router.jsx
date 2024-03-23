@@ -1,4 +1,4 @@
-import {BrowserRouter, Routes, Route, Navigate} from "react-router-dom"
+import {Routes, Route, Navigate} from "react-router-dom"
 import AdminRoutes from "./Admin/Routes/AdminRoutes";
 import React, {useState} from "react";
 import EmployeeRoutes from "./Admin/Routes/EmployeeRoutes";

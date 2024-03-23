@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import ImageIcon from "@mui/icons-material/Image";
 import CustomModal from "./CustomModal";
 import Slider from "../Slider/Slider";
 import TableImageButton from "../Buttons/TableImageButton/TableImageButton";

@@ -1,9 +1,7 @@
 import React from 'react';
 import s from "./Navbar.module.css";
 import {NavLink} from "react-router-dom";
-import StarIcon from '@mui/icons-material/Star';
 import LocalDiningIcon from '@mui/icons-material/LocalDining';
-import LocalActivityIcon from "@mui/icons-material/LocalActivity";
 import SummarizeIcon from "@mui/icons-material/Summarize";
 import HomeIcon from "@mui/icons-material/Home";
 
