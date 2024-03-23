@@ -8,7 +8,7 @@ import {useAnimals} from "../../../hooks/useAnimals";
 import CrudTable from "../ui/DataTable/CrudTable";
 
 
-const FoodDataTable = () => {
+const ReviewsDataTable = ({withToolBar, withActions = true}) => {
 
     let {data, isLoading, error, isFetching} = useQuery({
         queryFn: () => ReviewsService.get(),
@@ -86,9 +86,11 @@ const FoodDataTable = () => {
     }
 
     const animalOptions = () => {
-        const options = []
-        animals.forEach(animal => options.push(animal.name))
-        return options
+        if(animals) {
+            const options = []
+            animals.forEach(animal => options.push(animal.name))
+            return options
+        }
     }
 
     const columns = [
@@ -134,9 +136,10 @@ const FoodDataTable = () => {
             onCreate={handlePostFoodMutation}
             isLoading={isFetching}
             title={'Vet. Reports'}
-            withToolBar={true}
-            autoHeight={true}/>
+            withToolBar={withToolBar}
+            autoHeight={true}
+            withActions={withActions}/>
     );
 };
 
-export default FoodDataTable;
+export default ReviewsDataTable;

@@ -1,12 +1,20 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import s from './Slider.module.css'
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import DeleteIcon from '@mui/icons-material/Delete';
+import {CircularProgress} from "@mui/joy";
 
 const Slider = ({images, animalId, setImageFile, deleteImage}) => {
 
     const [currentIndex, setCurrentIndex] = useState(1)
+    const[isLoading, setIsLoading] = useState(false)
+
+
+    useEffect(() => {
+        setIsLoading(false)
+    }, [images]);
+
 
     const increment = () => {
         if (currentIndex === images.length) {
@@ -32,19 +40,29 @@ const Slider = ({images, animalId, setImageFile, deleteImage}) => {
         const fileList = event.target.files;
         const fileArray = Array.from(fileList);
         setImageFile({fileArray: fileArray, id: animalId});
+        setIsLoading(true)
+    }
+
+    if(isLoading || images[0] === null) {
+        return (
+        <div
+            style={{display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', height: '100%'}}>
+            <CircularProgress/>
+        </div>)
     }
 
     return (
-        <div style={{display: "flex", flexDirection: "column"}}>
-            <input className={s.fileInput} type="file" name="photo" multiple onChange={handleFileChange}/>
+        <div>
+
             {images.length ?
-                <div className={s.imageContainer}>
-                    <DeleteIcon className={s.buttonDelete} onClick={() => {
-                        decrement()
-                        deleteImage({id: animalId, imageId: images[currentIndex - 1]['id']})
-                    }}/>
-                    {images.length ?
-                        images[currentIndex - 1] ?
+                <div>
+                    <div style={{display: "flex", flexDirection: "column"}}>
+                        <input className={s.fileInput} style={{marginBottom: 20}} type="file" name="photo" multiple onChange={handleFileChange}/>
+                        <div className={s.imageContainer}>
+                            <DeleteIcon className={s.buttonDelete} onClick={() => {
+                                decrement()
+                                deleteImage({id: animalId, imageId: images[currentIndex - 1]['id']})
+                            }}/>
                             <img src={`data:image/jpeg;base64,${images[currentIndex - 1]['file']}`}
                                  style={{
                                      height: 'auto',
@@ -53,22 +71,26 @@ const Slider = ({images, animalId, setImageFile, deleteImage}) => {
                                      maxHeight: 300,
                                      userSelect: "none"
                                  }}
-                                 alt={"Image"}/> : "wait"
+                                 alt={"Image"}/>
+                        </div>
+                        <div className={s.buttonsContainer}>
+                            <div onClick={decrement} className={s.button}><ArrowBackIosIcon/></div>
+                            <div style={{
+                                width: 115,
+                                display: "flex",
+                                alignItems: "center",
+                                justifyItems: "center",
+                                textAlign: "center",
+                                userSelect: "none"
+                            }}>{currentIndex} of {images.length}</div>
 
-                        : <div>No images</div>}
-
-                </div> : <div>No images!</div>}
-            {images.length ?
-                <div className={s.buttonsContainer}>
-                    <div onClick={decrement} className={s.button}><ArrowBackIosIcon/></div>
-                    <div style={{
-                        width: 115,
-                        display: "flex",
-                        alignItems: "center", justifyItems: "center", textAlign: "center", userSelect: "none"
-                    }}>{currentIndex} of {images.length}</div>
-
-                    <div onClick={increment} className={s.button}><ArrowForwardIosIcon/></div>
-                </div> : <div></div>
+                            <div onClick={increment} className={s.button}><ArrowForwardIosIcon/></div>
+                        </div>
+                    </div>
+                </div> :
+                <div style={{display:"flex", justifyContent: "space-between", alignItems: "center"}}>
+                    Time to add some images! <input className={s.fileInput} type="file" name="photo" multiple onChange={handleFileChange}/>
+                </div>
             }
         </div>
     );

@@ -6,6 +6,7 @@ import TableImageButton from "../Buttons/TableImageButton/TableImageButton";
 
 const ImageModal = ({data, getImages, postImage, id, imageData, deleteImage}) => {
 
+
     const setImageFile = (files) => {
         const {fileArray, id} = files
         const promises = fileArray.map(file => {

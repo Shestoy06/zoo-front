@@ -48,7 +48,7 @@
     align-self: flex-end;
     position: relative;
     width: 140px;
-    margin-bottom: 20px;
+    height: 100%;
 }
 
 .fileInput[type="file"]::file-selector-button {

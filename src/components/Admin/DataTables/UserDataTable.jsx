@@ -1,50 +1,51 @@
 import React from 'react';
 import {useMutation, useQuery, useQueryClient} from "@tanstack/react-query";
 import toast from "react-hot-toast";
-import {CircularProgress} from "@mui/joy";
-import ServicesService from "../../../services/services.service";
+import {CircularProgress, TextField} from "@mui/joy";
+import UserService from "../../../services/user.service";
 import CrudTable from "../ui/DataTable/CrudTable";
+import moment from "moment/moment";
 
 
-const ServicesDataTable = () => {
+const UserDataTable = () => {
 
     let {data, isLoading, error} = useQuery({
-        queryFn: () => ServicesService.get(),
-        queryKey: ['services']
+        queryFn: () => UserService.get(),
+        queryKey: ['users']
     })
 
     const invalidateData = () => {
-        queryClient.invalidateQueries({queryKey: ['services']})
+        queryClient.invalidateQueries({queryKey: ['users']})
     }
 
     const queryClient = useQueryClient()
     const {mutate: deleteMutation} = useMutation({
-        mutationFn: (id) => ServicesService.delete(id),
-        mutationKey: ['deleteService'],
+        mutationFn: (id) => UserService.delete(id),
+        mutationKey: ['deleteUser'],
         onSuccess: () => {
             invalidateData()
-            toast('Service deleted', {
+            toast('User deleted', {
                 icon: '🗑️',
             });
         }
     })
 
     const {mutate: postMutation} = useMutation({
-        mutationFn: (service,) => ServicesService.post(service),
-        mutationKey: ['postService'],
+        mutationFn: (user,) => UserService.post(user),
+        mutationKey: ['postUser'],
         onSuccess: () => {
             invalidateData()
-            toast.success("New service added!")
+            toast.success("New user added!")
         },
     })
 
 
     const {mutate: putMutation} = useMutation({
-        mutationFn: (service) => ServicesService.put(service),
-        mutationKey: ['putService'],
+        mutationFn: (user) => UserService.put(user),
+        mutationKey: ['putUser'],
         onSuccess: () => {
             invalidateData()
-            toast('Service modified!', {
+            toast('User modified!', {
                 icon: '✏️',
             });
         },
@@ -66,20 +67,32 @@ const ServicesDataTable = () => {
             align: 'center',
             headerAlign: 'center', },
         {
-            field: 'name',
-            headerName: 'Name',
-            width: 150,
+            field: 'username',
+            headerName: 'Username',
+            flex: 1,
             align: 'left',
             headerAlign: 'left',
             editable: true,
         },
         {
-            field: 'description',
-            headerName: 'Description',
+            field: 'password',
+            headerName: 'Password',
             align: 'left',
             headerAlign: 'left',
             editable: true,
             flex: 1,
+            valueFormatter: params => '******'
+
+        },
+        {
+            field: 'role',
+            headerName: 'Role',
+            align: 'left',
+            headerAlign: 'left',
+            type:'singleSelect',
+            editable: true,
+            flex: 1,
+            valueOptions: ['employee', 'veterinarian'],
         },
     ];
 
@@ -91,10 +104,10 @@ const ServicesDataTable = () => {
             onDelete={deleteMutation}
             onUpdate={putMutation}
             isLoading={isLoading}
-            title={'Services'}
+            title={'Users'}
             withToolBar={true}
             autoHeight={true}/>
     );
 };
 
-export default ServicesDataTable;
+export default UserDataTable;

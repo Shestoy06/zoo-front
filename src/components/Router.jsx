@@ -1,26 +1,30 @@
 import {BrowserRouter, Routes, Route, Navigate} from "react-router-dom"
 import AdminRoutes from "./Admin/Routes/AdminRoutes";
-import React from "react";
+import React, {useState} from "react";
 import EmployeeRoutes from "./Admin/Routes/EmployeeRoutes";
+import VetRoutes from "./Admin/Routes/VetRoutes";
+import Login from "./Admin/Login/Login";
 
 const Router = () => {
-    const user = "admin"
+
+    const[user, setUser] = useState(null)
 
     if (user === "admin") {
-        return (
-            <AdminRoutes/>
-        )
+        return <AdminRoutes/>
+
     } else if (user === "employee") {
         return <EmployeeRoutes/>
+
+    } else if (user === "vet") {
+        return <VetRoutes/>
+
     }
 
     return (
 
         <Routes>
-            <Route element={<Navigate to={'/'} />} path='*'></Route>
-            <Route element={<div></div>} path='/'></Route>
-            <AdminRoutes/>
-            <EmployeeRoutes/>
+            <Route path={'/login'} element={<Login setUser={setUser}/>}/>
+            <Route element={<Navigate to={'/login'} />} path='*'></Route>
         </Routes>
 
     )

@@ -2,14 +2,11 @@ import React, {useState} from 'react';
 import {useMutation, useQuery, useQueryClient} from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import {CircularProgress} from "@mui/joy";
-import moment from "moment";
 import HabitatService from "../../../services/habitat.service";
 import CrudTable from "../ui/DataTable/CrudTable";
-import ImageModal from "../ui/Modal/ImageModal";
-import AnimalService from "../../../services/animal.service";
 
 
-const HabitatsDataTable = () => {
+const HabitatsDataTable = ({withToolBar, forVet}) => {
 
     let {data, isLoading, error, isFetching} = useQuery({
         queryFn: () => HabitatService.get(),
@@ -92,28 +89,55 @@ const HabitatsDataTable = () => {
         return <div>error</div>
     }
 
-    const columns = [
-        { field: 'id', headerName: 'Id', width: 80, editable: false,
-            align: 'center',
-            headerAlign: 'center', },
-        {
-            field: 'name',
-            headerName: 'Name',
-            width: 80,
-            align: 'left',
-            headerAlign: 'left',
-            editable: true,
-        },
-        {
-            field: 'comment',
-            headerName: 'Comment',
-            align: 'left',
-            headerAlign: 'left',
-            editable: true,
-            flex: 1
-        },
+    let columns = []
 
-    ];
+    if (forVet) {
+        columns = [
+            {
+                field: 'id', headerName: 'Id', width: 80, editable: false,
+                align: 'center',
+                headerAlign: 'center',
+            },
+            {
+                field: 'name',
+                headerName: 'Name',
+                width: 80,
+                align: 'left',
+                headerAlign: 'left',
+                editable: false,
+            },
+            {
+                field: 'comment',
+                headerName: 'Comment',
+                align: 'left',
+                headerAlign: 'left',
+                editable: true,
+                flex: 1
+            }]
+    } else {
+        columns = [
+            {
+                field: 'id', headerName: 'Id', width: 80, editable: false,
+                align: 'center',
+                headerAlign: 'center',
+            },
+            {
+                field: 'name',
+                headerName: 'Name',
+                width: 80,
+                align: 'left',
+                headerAlign: 'left',
+                editable: true,
+            },
+            {
+                field: 'comment',
+                headerName: 'Comment',
+                align: 'left',
+                headerAlign: 'left',
+                editable: true,
+                flex: 1
+            }]
+    }
 
     return (
         <CrudTable

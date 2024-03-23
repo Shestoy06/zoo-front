@@ -21,17 +21,21 @@ import toast from "react-hot-toast";
 import {styled} from "@mui/material";
 import ImageModal from "../Modal/ImageModal";
 
-const CrudTable = ({columns, data,
+const CrudTable = ({columns, data, withActions = true, getRowId,
                        onDelete, onCreate, onUpdate,
                        title, withToolBar, autoHeight = false,
                        imageModal = false, postImage, getImages, imageData, deleteImage}) => {
 
     const [rows, setRows] = React.useState(data);
+    useEffect(() => {
+        setRows(data)
+        if(data.length) {
+            setLastId(data[data.length - 1].id)
+        }
+    }, [data]);
     const [rowModesModel, setRowModesModel] = React.useState({});
 
-
     const apiRef = useGridApiRef();
-
 
     const [page, setPage] = useState(0);
 
@@ -103,39 +107,43 @@ const CrudTable = ({columns, data,
         }
     };
 
-    columns = [...columns,
-        {
-            field: 'actions',
-            type: 'actions',
-            headerName: 'Actions',
-            width: 180,
-            align: 'center',
-            cellClassName: 'actions',
-            disableClickEventBubbling: true,
-            getActions: ({ id }) => {
-                const isInEditMode = rowModesModel[id]?.mode === GridRowModes.Edit;
+    if(withActions) {
+        columns = [...columns,
+            {
+                field: 'actions',
+                type: 'actions',
+                headerName: 'Actions',
+                width: 180,
+                align: 'center',
+                cellClassName: 'actions',
+                disableClickEventBubbling: true,
+                getActions: ({ id }) => {
+                    const isInEditMode = rowModesModel[id]?.mode === GridRowModes.Edit;
 
-                if (isInEditMode) {
-                    return [
-                        <TableSaveButton onClick={handleSaveClick(id)}/>,
-                        <TableCancelButton onClick={handleCancelClick(id)}/>,
-                    ];
-                }
+                    if (isInEditMode) {
+                        return [
+                            <TableSaveButton onClick={handleSaveClick(id)}/>,
+                            <TableCancelButton onClick={handleCancelClick(id)}/>,
+                        ];
+                    }
 
-                if(imageModal) {
+                    if(imageModal) {
+                        return [
+                            <TableModifyButton onClick={handleEditClick(id)}/>,
+                            <TableDeleteButton onClick={handleDeleteClick(id)}/>,
+                            <ImageModal id={id} postImage={postImage} getImages={getImages} imageData={imageData} deleteImage={deleteImage}/>
+                        ];
+                    }
+
                     return [
                         <TableModifyButton onClick={handleEditClick(id)}/>,
                         <TableDeleteButton onClick={handleDeleteClick(id)}/>,
-                        <ImageModal id={id} postImage={postImage} getImages={getImages} imageData={imageData} deleteImage={deleteImage}/>
                     ];
-                }
+                },
+            },]
+    }
 
-                return [
-                    <TableModifyButton onClick={handleEditClick(id)}/>,
-                    <TableDeleteButton onClick={handleDeleteClick(id)}/>,
-                ];
-            },
-        },]
+
 
     const handleEditClick = (id) => () => {
         setRowModesModel({ ...rowModesModel, [id]: { mode: GridRowModes.Edit } });
@@ -175,6 +183,7 @@ const CrudTable = ({columns, data,
         if(!error) {
             if(newRow.isNew) {
                 onCreate(newRow)
+                setButtonIsDisabled(false)
                 setLastId(newRow.id)
             } else {
                 onUpdate(newRow)
@@ -270,6 +279,8 @@ const CrudTable = ({columns, data,
 
                     onCellEditStart={handleCellEditStart}
                     onCellEditStop={handleCellEditStop}
+
+                    getRowId={getRowId}
 
                     slots={{
                         toolbar: EditToolbar,

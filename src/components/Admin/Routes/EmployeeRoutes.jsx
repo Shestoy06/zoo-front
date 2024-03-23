@@ -4,7 +4,8 @@ import {Toaster} from "react-hot-toast";
 import {Navigate, Route, Routes} from "react-router-dom";
 import EmployeeNavbar from "../ui/Navbar/EmployeeNavbar";
 import RatesDataTable from "../Employee/DataTables/RatesDataTable";
-import FullFeaturedCrudGrid from "../Employee/DataTables/FoodDataTable";
+import FoodDataTable from "../Employee/DataTables/FoodDataTable";
+import ServicesDataTable from "../DataTables/ServicesDataTable";
 
 
 const EmployeeRoutes = () => {
@@ -17,7 +18,8 @@ const EmployeeRoutes = () => {
                 <div><Toaster/></div>
                 <Routes>
                     <Route element={<RatesDataTable/>} path={'/employee/rates'}/>
-                    <Route element={<FullFeaturedCrudGrid/>} path={'/employee/food'}/>
+                    <Route element={<FoodDataTable/>} path={'/employee/food'}/>
+                    <Route element={<ServicesDataTable/>} path={'/employee/services'}/>
                     <Route element={<Navigate to={'/employee/rates'} />} path='*'></Route>
                 </Routes>
             </div>

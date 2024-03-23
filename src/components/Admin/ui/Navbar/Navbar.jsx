@@ -5,6 +5,8 @@ import PetsIcon from '@mui/icons-material/Pets';
 import SummarizeIcon from '@mui/icons-material/Summarize';
 import LocalActivityIcon from '@mui/icons-material/LocalActivity';
 import HomeIcon from '@mui/icons-material/Home';
+import SupervisedUserCircleIcon from '@mui/icons-material/SupervisedUserCircle';
+import BarChartIcon from '@mui/icons-material/BarChart';
 
 const Navbar = () => {
     return (
@@ -18,6 +20,14 @@ const Navbar = () => {
                     s.link
                 ].join(" ")
             }> <PetsIcon/> Animals</NavLink>
+            <NavLink to={"/admin/animal-views"} className={({ isActive, isPending, isTransitioning }) =>
+                [
+                    isPending ? "pending" : "",
+                    isActive ? s.active : "",
+                    isTransitioning ? "transitioning" : "",
+                    s.link
+                ].join(" ")
+            }> <BarChartIcon/> Animals views</NavLink>
             <NavLink to={"/admin/habitat"} className={({ isActive, isPending, isTransitioning }) =>
                 [
                     isPending ? "pending" : "",
@@ -42,6 +52,14 @@ const Navbar = () => {
                     s.link
                 ].join(" ")
             }> <LocalActivityIcon/> Services</NavLink>
+            <NavLink to={"/admin/users"} className={({ isActive, isPending, isTransitioning }) =>
+                [
+                    isPending ? "pending" : "",
+                    isActive ? s.active : "",
+                    isTransitioning ? "transitioning" : "",
+                    s.link
+                ].join(" ")
+            }> <SupervisedUserCircleIcon/> Users</NavLink>
 
         </div>
     );

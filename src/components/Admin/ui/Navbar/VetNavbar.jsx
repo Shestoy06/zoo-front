@@ -4,20 +4,22 @@ import {NavLink} from "react-router-dom";
 import StarIcon from '@mui/icons-material/Star';
 import LocalDiningIcon from '@mui/icons-material/LocalDining';
 import LocalActivityIcon from "@mui/icons-material/LocalActivity";
+import SummarizeIcon from "@mui/icons-material/Summarize";
+import HomeIcon from "@mui/icons-material/Home";
 
-const EmployeeNavbar = () => {
+const VetNavbar = () => {
     return (
         <div className={s.navbar}>
-            <h2 className={s.title}>Arcadia employee</h2>
-            <NavLink to={"/employee/rates"} className={({isActive, isPending, isTransitioning}) =>
+            <h2 className={s.title}>Arcadia Vet</h2>
+            <NavLink to={"/veterinarian/reports"} className={({ isActive, isPending, isTransitioning }) =>
                 [
                     isPending ? "pending" : "",
                     isActive ? s.active : "",
                     isTransitioning ? "transitioning" : "",
                     s.link
                 ].join(" ")
-            }> <StarIcon/>Rates</NavLink>
-            <NavLink to={"/employee/food"} className={({isActive, isPending, isTransitioning}) =>
+            }> <SummarizeIcon/> Vet. Reports</NavLink>
+            <NavLink to={"/veterinarian/food"} className={({isActive, isPending, isTransitioning}) =>
                 [
                     isPending ? "pending" : "",
                     isActive ? s.active : "",
@@ -25,15 +27,15 @@ const EmployeeNavbar = () => {
                     s.link
                 ].join(" ")
             }> <LocalDiningIcon/>Animal food</NavLink>
-            <NavLink to={"/employee/services"} className={({ isActive, isPending, isTransitioning }) =>
+            <NavLink to={"/veterinarian/habitat"} className={({ isActive, isPending, isTransitioning }) =>
                 [
                     isPending ? "pending" : "",
                     isActive ? s.active : "",
                     isTransitioning ? "transitioning" : "",
                     s.link
                 ].join(" ")
-            }> <LocalActivityIcon/> Services</NavLink>
+            }> <HomeIcon/> Habitats</NavLink>
         </div>
     );
 }
-export default EmployeeNavbar;
+export default VetNavbar;

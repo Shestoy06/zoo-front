@@ -8,7 +8,7 @@ import {CircularProgress} from "@mui/joy";
 import moment from "moment";
 
 
-const FoodDataTable = () => {
+const FoodDataTable = ({withToolBar = true, withActions = true}) => {
 
     let {data, isLoading, error, isFetching} = useQuery({
         queryFn: () => FoodService.get(),
@@ -82,9 +82,11 @@ const FoodDataTable = () => {
     }
 
     const animalOptions = () => {
-        const options = []
-        animals.forEach(animal => options.push(animal.name))
-        return options
+        if(animals) {
+            const options = []
+            animals.forEach(animal => options.push(animal.name))
+            return options
+        }
     }
 
     const columns = [
@@ -135,12 +137,13 @@ const FoodDataTable = () => {
         <CrudTable
             columns={columns}
             data={data}
+            withActions={withActions}
             onDelete={deleteFoodMutation}
             onUpdate={handlePutFoodMutation}
             onCreate={handlePostFoodMutation}
             isLoading={isFetching}
             title={'Animal food'}
-            withToolBar={true}/>
+            withToolBar={withToolBar}/>
     );
 };
 
