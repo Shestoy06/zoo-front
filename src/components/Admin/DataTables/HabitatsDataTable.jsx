@@ -6,7 +6,7 @@ import HabitatService from "../../../services/habitat.service";
 import CrudTable from "../ui/DataTable/CrudTable";
 
 
-const HabitatsDataTable = ({withToolBar, forVet}) => {
+const HabitatsDataTable = ({withToolBar, withActions = true, noDelete = false, imageModal = true, forVet = false}) => {
 
     let {data, isLoading, error, isFetching} = useQuery({
         queryFn: () => HabitatService.get(),
@@ -148,10 +148,12 @@ const HabitatsDataTable = ({withToolBar, forVet}) => {
             onUpdate={putMutation}
             isLoading={isFetching}
             title={'Habitats'}
-            withToolBar={true}
+            withToolBar={withToolBar}
+            withActions={withActions}
+            noDelete={noDelete}
             autoHeight={true}
 
-            imageModal={true}
+            imageModal={imageModal}
             getImages={getImages}
             imageData={imageData}
             postImage={postImageMutation}

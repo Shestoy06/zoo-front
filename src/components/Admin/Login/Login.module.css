@@ -1,8 +1,7 @@
 .background {
     height: 100vh;
     width: 100vw;
-    background: rgb(24,65,242);
-    background: linear-gradient(90deg, rgba(24,65,242,1) 0%, rgba(17,212,251,1) 100%);
+    background: linear-gradient(to right, rgb(182, 244, 146), #59d9b3);
 }
 .container {
     background: #fff;
@@ -21,7 +20,7 @@
     text-align: center;
     padding: 10px;
     font-size: 24px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     font-weight: 500;
     color: #00247c;
 }
@@ -75,5 +74,13 @@
 .button:hover {
     background: #fff;
     color: #597ed9;
+}
+
+.message {
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: #00247c;
+    font-family: Futura, sans-serif;
 
 }

@@ -8,11 +8,11 @@ import FoodDataTable from "../Employee/DataTables/FoodDataTable";
 import ServicesDataTable from "../DataTables/ServicesDataTable";
 
 
-const EmployeeRoutes = () => {
+const EmployeeRoutes = ({logOut}) => {
     return (
 
         <div className={s.flexWrapper}>
-            <EmployeeNavbar/>
+            <EmployeeNavbar logOut={logOut}/>
             <div></div>
             <div className={s.content}>
                 <div><Toaster/></div>

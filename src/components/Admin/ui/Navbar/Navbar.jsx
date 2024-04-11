@@ -7,8 +7,10 @@ import LocalActivityIcon from '@mui/icons-material/LocalActivity';
 import HomeIcon from '@mui/icons-material/Home';
 import SupervisedUserCircleIcon from '@mui/icons-material/SupervisedUserCircle';
 import BarChartIcon from '@mui/icons-material/BarChart';
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
+import {Button} from "@mui/material";
 
-const Navbar = () => {
+const Navbar = ({logOut}) => {
     return (
         <div className={s.navbar}>
             <h2 className={s.title}>Arcadia admin</h2>
@@ -59,8 +61,15 @@ const Navbar = () => {
                     isTransitioning ? "transitioning" : "",
                     s.link
                 ].join(" ")
-            }> <SupervisedUserCircleIcon/> Users</NavLink>
-
+            }><SupervisedUserCircleIcon/> Users</NavLink>
+                <NavLink to={"/login"} onClick={logOut} className={({ isActive, isPending, isTransitioning }) =>
+                    [
+                            isPending ? "pending" : "",
+                            isActive ? s.active : "",
+                            isTransitioning ? "transitioning" : "",
+                            s.link
+                    ].join(" ")
+                }><ExitToAppIcon style={{color: "#e33232"}}/> Log out</NavLink>
         </div>
     );
 };

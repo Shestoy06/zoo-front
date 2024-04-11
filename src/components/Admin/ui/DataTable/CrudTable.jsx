@@ -18,7 +18,7 @@ import toast from "react-hot-toast";
 import {styled} from "@mui/material";
 import ImageModal from "../Modal/ImageModal";
 
-const CrudTable = ({columns, data, withActions = true, getRowId,
+const CrudTable = ({columns, data, withActions = true, getRowId, noDelete = false,
                        onDelete, onCreate, onUpdate,
                        title, withToolBar, autoHeight = false,
                        imageModal = false, postImage, getImages, imageData, deleteImage}) => {
@@ -124,7 +124,13 @@ const CrudTable = ({columns, data, withActions = true, getRowId,
                         ];
                     }
 
-                    if(imageModal) {
+                    if(noDelete) {
+                        return [
+                            <TableModifyButton onClick={handleEditClick(id)}/>,
+                        ];
+                    }
+
+                    else if(imageModal) {
                         return [
                             <TableModifyButton onClick={handleEditClick(id)}/>,
                             <TableDeleteButton onClick={handleDeleteClick(id)}/>,

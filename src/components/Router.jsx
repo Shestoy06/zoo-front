@@ -4,19 +4,26 @@ import React, {useState} from "react";
 import EmployeeRoutes from "./Admin/Routes/EmployeeRoutes";
 import VetRoutes from "./Admin/Routes/VetRoutes";
 import Login from "./Admin/Login/Login";
+import Home from "./Client/Home";
+import HeroImage from './Client/Hero/HeroImage'
 
 const Router = () => {
 
     const[user, setUser] = useState(null)
 
+    const logOut = () => {
+        localStorage.setItem('role', '')
+        window.location.reload();
+    }
+
     if (user === "admin") {
-        return <AdminRoutes/>
+        return <AdminRoutes logOut={logOut}/>
 
     } else if (user === "employee") {
-        return <EmployeeRoutes/>
+        return <EmployeeRoutes logOut={logOut}/>
 
-    } else if (user === "vet") {
-        return <VetRoutes/>
+    } else if (user === "veterinarian") {
+        return <VetRoutes logOut={logOut}/>
 
     }
 
@@ -24,7 +31,9 @@ const Router = () => {
 
         <Routes>
             <Route path={'/login'} element={<Login setUser={setUser}/>}/>
-            <Route element={<Navigate to={'/login'} />} path='*'></Route>
+            <Route path={'/home'} element={<Home/>}/>
+            <Route path={'/image'} element={<HeroImage/>}/>
+            <Route element={<Navigate to={'/home'} />} path='*'></Route>
         </Routes>
 
     )

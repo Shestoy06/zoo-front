@@ -11,10 +11,10 @@ import UserDataTable from "../DataTables/UserDataTable";
 import AnimalViewsDataTable from "../DataTables/AnimalViewsDataTable";
 
 
-const AdminRoutes = () => {
+const AdminRoutes = ({logOut}) => {
     return (
         <div className={s.flexWrapper}>
-            <Navbar/>
+            <Navbar logOut={logOut}/>
             <div></div>
             <div className={s.content}>
                 <div><Toaster/></div>

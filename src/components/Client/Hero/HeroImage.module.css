@@ -1,0 +1,232 @@
+
+
+:root {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    --rotate-y: 0;
+    --rotate-x: 0;
+    --ratio: calc(1vw + 1vh);
+    --transition: 1.5s cubic-bezier(0.05, 0.5, 0, 1);
+    --logo-size: calc(var(--ratio) * 7.8);
+}
+
+body {
+    font-family: Arial, sans-serif;
+    transition: all 0.3s ease;
+
+}
+
+.parallax {
+    transform-style: preserve-3d;
+    transform: rotateX(var(--rotate-x)) rotateY(var(--rotate-y));
+    transition: transform var(--transition);
+    will-change: transform;
+    color: #fff;
+}
+
+.saturation {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0vh;
+    left: 0vw;
+    z-index: 1;
+    margin: auto auto;
+    border-radius: 20px;
+
+    backdrop-filter: blur(0px) saturate(180%);
+}
+
+.navbar {
+    width: 50vw;
+    height: 100vh;
+    position: absolute;
+    top: 0vh;
+    left: -50vw;
+    z-index: 2;
+    backdrop-filter: blur(20px) saturate(180%);
+    transform: translate(-100%) translate(100%);
+    transition: left 0.3s ease; /* Animation transition */
+}
+.navbar_close {
+    position: absolute;
+    top: 50%;
+    left:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 60px;
+    background: #fff;
+    border-radius: 0 10rem 10rem 0;
+}
+
+.navbar__container {
+    width: 100%;
+    height: 100%;
+}
+
+
+
+.open {
+    left: 0;
+}
+
+
+
+.layers {
+    perspective: 1000px;
+    overflow: hidden;
+    background: #000;
+}
+
+.layers__container {
+    height: 100vh;
+    min-height: 500px;
+}
+
+.layers__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: -5vw;
+    bottom: -5vw;
+    left: -5vw;
+    right: -5vw;
+    background-size: cover;
+    background-position: center;
+}
+
+.layer_main {
+    transform: translateZ(180px) scale(0.8);
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+    transition: left 0.3s ease; /* Animation transition */
+
+
+}
+
+.layer-3-rain {
+    transform: translateZ(190px) scale(0.9);
+}
+
+
+.main_content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-animation: titleText 7s linear;
+    -moz-animation:titleText 7s linear;
+    animation:titleText 7s linear;
+    animation-delay: 4s;
+    margin-left: 0;
+    transition: left 0.3s ease;
+
+}
+
+.main_content h1 {
+    letter-spacing: calc(var(--ratio) * -0.03) !important;
+    line-height: 1.35em !important;
+    text-align: center;
+    font-size: 64px;
+    font-weight: bold;
+}
+
+.layer_background {
+    -webkit-animation:text 3s ease-out;
+    -moz-animation:text 3s ease-out;
+    animation:text 3s ease-in;
+    animation-delay: 7s;
+}
+
+@keyframes titleText {
+    0%{
+        opacity: 0;
+    }
+    99%{
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+@keyframes text {
+    0% {
+        opacity: 0;
+    }
+    30% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+        .image {
+            opacity: 1;
+        }
+
+    }
+}
+
+.description {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 50px;
+    font-size: 22px;
+    font-family: Futura, sans-serif;
+    -webkit-animation:carousel 13s linear;
+    -moz-animation:carousel 13s linear;
+    animation:carousel 13s linear;
+    transition: left 0.3s ease;
+
+
+}
+
+.button {
+    -webkit-animation:carousel 14s linear;
+    -moz-animation:carousel 14s linear;
+    animation:carousel 14s linear;
+    position: absolute;
+    cursor: pointer;
+    bottom: 150px;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    transition: all 0.3s ease;
+
+
+
+    padding: 10px 20px;
+    background: white;
+    border-radius: 20px;
+    color: black;
+    font-size: 18px;
+    font-family: Futura, sans-serif;
+    text-decoration: unset;
+
+}
+
+.button:hover {
+    transition: all 0.3s ease;
+
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+}
+
+@keyframes carousel {
+    0%{
+        opacity: 0;
+    }
+    95%{
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

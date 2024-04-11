@@ -7,6 +7,14 @@ class ServicesService {
         return axios.get(this.URL).then(res => res.data)
     }
 
+    async checkUser(body) {
+        const {username, password} = body
+        return axios.post(this.URL + '/find', {
+            username: username,
+            password: password
+        }).then(res => res.data)
+    }
+
     async put(body) {
         return axios.put(`${this.URL}/${body.id}`, {
             id: body.id,

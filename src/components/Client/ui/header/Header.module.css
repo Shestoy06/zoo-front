@@ -1,0 +1,41 @@
+header {
+    width: 100%;
+    min-height: 80px;
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    color: white;
+    padding: 40px 180px;
+    gap: 40px;
+    -webkit-animation:carousel 14s linear;
+    -moz-animation:carousel 14s linear;
+    animation:carousel 14s linear;
+}
+
+header:visited {
+    color: white;
+}
+
+.link {
+    text-decoration: none;
+    font-size: 22px;
+}
+
+.link:visited {
+    color: white;
+
+}
+
+@keyframes carousel {
+    0%{
+        opacity: 0;
+    }
+    95%{
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

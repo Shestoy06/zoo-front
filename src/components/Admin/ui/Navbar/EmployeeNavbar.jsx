@@ -4,8 +4,9 @@ import {NavLink} from "react-router-dom";
 import StarIcon from '@mui/icons-material/Star';
 import LocalDiningIcon from '@mui/icons-material/LocalDining';
 import LocalActivityIcon from "@mui/icons-material/LocalActivity";
+import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 
-const EmployeeNavbar = () => {
+const EmployeeNavbar = ({logOut}) => {
     return (
         <div className={s.navbar}>
             <h2 className={s.title}>Arcadia employee</h2>
@@ -33,6 +34,14 @@ const EmployeeNavbar = () => {
                     s.link
                 ].join(" ")
             }> <LocalActivityIcon/> Services</NavLink>
+            <NavLink to={"/login"} onClick={logOut} className={({ isActive, isPending, isTransitioning }) =>
+                [
+                    isPending ? "pending" : "",
+                    isActive ? s.active : "",
+                    isTransitioning ? "transitioning" : "",
+                    s.link
+                ].join(" ")
+            }><ExitToAppIcon style={{color: "#e33232"}}/> Log out</NavLink>
         </div>
     );
 }
