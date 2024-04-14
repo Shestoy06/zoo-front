@@ -47,7 +47,7 @@ body {
     z-index: 2;
     backdrop-filter: blur(20px) saturate(180%);
     transform: translate(-100%) translate(100%);
-    transition: left 0.3s ease; /* Animation transition */
+    transition: all 1s ease; /* Animation transition */
 }
 .navbar_close {
     position: absolute;
@@ -115,21 +115,16 @@ body {
 
 
 .main_content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     -webkit-animation: titleText 7s linear;
     -moz-animation:titleText 7s linear;
     animation:titleText 7s linear;
     animation-delay: 4s;
     margin-left: 0;
-    transition: left 0.3s ease;
-
+    transition: all .6s ease;
 }
 
 .main_content h1 {
-    letter-spacing: calc(var(--ratio) * -0.03) !important;
+    letter-spacing: calc(var(--ratio) * -0.05) !important;
     line-height: 1.35em !important;
     text-align: center;
     font-size: 64px;
@@ -183,7 +178,7 @@ body {
     -webkit-animation:carousel 13s linear;
     -moz-animation:carousel 13s linear;
     animation:carousel 13s linear;
-    transition: left 0.3s ease;
+    transition: all .6s ease;
 
 
 }

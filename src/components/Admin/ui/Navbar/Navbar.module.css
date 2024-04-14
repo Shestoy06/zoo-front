@@ -11,11 +11,14 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+    font-family: Roboto, sans-serif;
 }
 
 .title {
     padding-left: 10px;
     padding-bottom: 20px;
+    font-family: Roboto, sans-serif;
+
 }
 
 .link {
