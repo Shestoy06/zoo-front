@@ -10,6 +10,7 @@ import HeroImage from './Client/Hero/HeroImage'
 const Router = () => {
 
     const[user, setUser] = useState(null)
+    const role = localStorage.getItem('role')
 
     const logOut = () => {
         localStorage.setItem('role', '')
@@ -33,7 +34,7 @@ const Router = () => {
             <Route path={'/login'} element={<Login setUser={setUser}/>}/>
             <Route path={'/home'} element={<Home/>}/>
             <Route path={'/image'} element={<HeroImage/>}/>
-            <Route element={<Navigate to={'/home'} />} path='*'></Route>
+            <Route element={<Navigate to={role ? '/login' : '/home'} />} path='*'></Route>
         </Routes>
 
     )

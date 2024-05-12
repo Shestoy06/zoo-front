@@ -3,6 +3,7 @@ import s from './Home.module.css'
 import HeroImage from './Hero/HeroImage'
 import image1 from './ui/splash/leaves/vecteezy_ai-generated-close-up-of-an-urban-jungle-scene-nature_35846086.jpg'
 import Header from "./ui/header/Header";
+import {Toaster} from "react-hot-toast";
 
 
 const Home = () => {
@@ -51,6 +52,7 @@ const Home = () => {
 
     return (
         <div className={s.container}>
+            <div><Toaster/></div>
             <div style={{width: '100vw', height: '100vh', position: 'relative', backgroundColor: "#000"}}>
                 {
                     !shouldRemove && (

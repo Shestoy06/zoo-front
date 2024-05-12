@@ -7,19 +7,27 @@ class HabitatService {
     async get() {
         return axios.get(this.URL).then(res => res.data)
     }
+    async getWithPhotos() {
+        return axios.get("http://127.0.0.1:8000/api/habitats-photos").then(res => res.data)
+    }
+    async getByName(name) {
+        return axios.get(`http://127.0.0.1:8000/api/animal/habitat/${name}`).then(res => res.data)
+    }
 
     async put(habitat) {
         return axios.put(`${this.URL}/${habitat.id}`, {
             id: habitat.id,
             name: habitat.name,
-            comment: habitat.comment
+            comment: habitat.comment,
+            description: habitat.description,
         }).then(res => res.data)
     }
 
     async post(habitat) {
         return axios.post(`${this.URL}`, {
             name: habitat.name,
-            comment: habitat.comment
+            comment: habitat.comment,
+            description: habitat.description,
         }).then(res => res.data)
     }
 

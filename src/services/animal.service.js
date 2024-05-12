@@ -5,6 +5,8 @@ class AnimalService {
     URL = 'http://127.0.0.1:8000/api/animal'
     NEST_URL = 'http://127.0.0.1:3001/api/animal'
 
+
+
     async getAll() {
         return axios.get(this.URL).then(res => {
             return res.data.map(data => ({
@@ -21,6 +23,9 @@ class AnimalService {
 
     async getAnimalImage(animalId) {
         return axios.get(`${this.URL}/${animalId}/image`).then(res => res.data)
+    }
+    async getAnimalImages() {
+        return axios.get(`http://127.0.0.1:8000/api/image`).then(res => res.data)
     }
 
     async deleteAnimalImage(body) {
@@ -73,6 +78,11 @@ class AnimalService {
                 animalImages: animal.animalImages
             }).then(res => res.data)
         })
+    }
+
+    async incrementViews(body) {
+        const {animalId} = body
+        return axios.patch(`${this.NEST_URL}/${animalId}/increment-views`)
     }
 
     async getAnimalsFromNest() {

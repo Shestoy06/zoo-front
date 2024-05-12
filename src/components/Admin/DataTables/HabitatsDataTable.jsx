@@ -113,7 +113,16 @@ const HabitatsDataTable = ({withToolBar, withActions = true, noDelete = false, i
                 headerAlign: 'left',
                 editable: true,
                 flex: 1
-            }]
+            },
+            {
+                field: 'description',
+                headerName: 'Description',
+                align: 'left',
+                headerAlign: 'left',
+                editable: true,
+                flex: 1
+            }
+            ]
     } else {
         columns = [
             {
@@ -136,7 +145,16 @@ const HabitatsDataTable = ({withToolBar, withActions = true, noDelete = false, i
                 headerAlign: 'left',
                 editable: true,
                 flex: 1
-            }]
+            },
+            {
+                field: 'description',
+                headerName: 'Description',
+                align: 'left',
+                headerAlign: 'left',
+                editable: true,
+                flex: 1
+            }
+            ]
     }
 
     return (

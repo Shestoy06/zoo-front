@@ -18,10 +18,9 @@ class RatesService {
 
     async post(rate) {
         return axios.post(`${this.URL}`, {
-            id: rate.id,
             pseudo: rate.pseudo,
             message: rate.message,
-            status: rate.status
+            status: "Waiting"
         }).then(res => res.data)
     }
 

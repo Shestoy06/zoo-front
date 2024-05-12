@@ -23,7 +23,7 @@ const AdminRoutes = ({logOut}) => {
                     <Route element={<AnimalViewsDataTable/>} path={'/admin/animal-views'}/>
                     <Route element={<ReviewsDataTable withToolBar={false} withActions={false}/>} path={'/admin/reports'}/>
                     <Route element={<ServicesDataTable/>} path={'/admin/services'}/>
-                    <Route element={<HabitatsDataTable/>} path={'/admin/habitat'}/>
+                    <Route element={<HabitatsDataTable withToolBar={true}/>} path={'/admin/habitat'}/>
                     <Route element={<UserDataTable/>} path={'/admin/users'}/>
                     <Route element={<Navigate to={'/admin/animals'} />} path='*'></Route>
                 </Routes>
