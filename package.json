@@ -1,4 +1,5 @@
 {
+  "homepage": "https://Shestoy06.github.io/zoo-front",
   "name": "zoo-front",
   "version": "0.1.0",
   "private": true,
@@ -36,12 +37,16 @@
     "react-select": "^5.8.0",
     "react-transition-group": "^4.4.5",
     "sass": "^1.74.1",
+    "serve": "^14.2.3",
     "swiper": "^11.0.7",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "predploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "start": "serve -s build",
     "build": "react-scripts build",
+    "dev": "react-scripts start",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -62,5 +67,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^6.1.1"
   }
 }
