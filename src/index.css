@@ -6,6 +6,7 @@ body {
 
 body, html {
   font-family: 'Vazir', sans-serif;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .root {

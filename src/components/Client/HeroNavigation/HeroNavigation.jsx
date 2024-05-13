@@ -14,17 +14,21 @@ import HabitatService from "../../../services/habitat.service";
 import toast from "react-hot-toast";
 import emailjs from '@emailjs/browser';
 import {useMediaQuery} from "@mui/material";
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
-const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab}) => {
+const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScreenNav, fullScreenNav}) => {
 
     const ALL_ANIMALS = 'All'
 
-    const [hideMenu, setHideMenu] = useState(false)
+    const min1000 = useMediaQuery('(min-width:1000px)');
+
+    const [hideMenu, setHideMenu] = useState(!min1000)
     const [habitatSelected, setSelectedHabitat] = useState(ALL_ANIMALS)
     const [habitatsVisible, setHabitatsVisible] = useState(false) // false if show animals
 
     const [reviewText, setReviewText] = useState("")
     const [reviewPseudo, setReviewPseudo] = useState("")
+
 
 
     const {data: services, isLoading: isLoadingServices, error: errorServices} = useQuery({
@@ -64,7 +68,6 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab}) => {
 
     const min1500 = useMediaQuery('(min-width:1500px)');
     const min1280 = useMediaQuery('(min-width:1280px)');
-    const min1000 = useMediaQuery('(min-width:1000px)');
     const min640 = useMediaQuery('(min-width:640px)');
     const min500 = useMediaQuery('(min-width:500px)');
     const min370 = useMediaQuery('(min-width:370px)');
@@ -240,27 +243,33 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab}) => {
 
     return (
         <div style={{width: '100%', height: '100%', display: 'flex', gap: 10, position: 'relative'}}>
-            <div className={s.close_icon} onClick={() => handleCloseNavbar()}><CloseIcon/></div>
-            <div className={s.close_icon} onClick={() => {
+            <div className={`${s.close_icon} ${s.close_icon_cross}`}  onClick={() => {
+                if(fullScreenNav) {
+                    setFullScreenNav(false)
+                } else {
+                    handleCloseNavbar()
+                }}}><CloseIcon/></div>
+            <div className={s.close_icon}  onClick={() => {
                 setHideMenu(!hideMenu)
             }} style={{marginTop: 40}}><MenuIcon/>
             </div>
-            <div className={`${s.navigation} ${hideMenu ? s.hidden__navigation : s.visible__navigation}`}>
+            <div className={s.arrow} onClick={() => setFullScreenNav(true)}><ArrowForwardIosIcon/></div>
+            <div className={`${s.navigation} ${hideMenu ? s.hidden__navigation : s.visible__navigation}`} onClick={() => {if (!hideMenu) setHideMenu(!hideMenu)}}>
                 <div className={s.navigation__item}
-                     style={activeTab === 'info' ? {textDecoration: min1000 ? 'underline' : 'none', backgroundColor: min1000 ? 'transparent' : 'rgb(176, 0, 0)'} : {textDecoration: 'none'}}
+                     style={activeTab === 'info' ? {textDecoration: min1000 ? 'underline' : 'none'} : {textDecoration: 'none'}}
                      onClick={() => setActiveTab('info')}>Accueil
                 </div>
                 <div className={s.navigation__item}
-                     style={activeTab === 'animals' ? {textDecoration: min1000 ? 'underline' : 'none', backgroundColor: min1000 ? 'transparent' : 'rgb(176, 0, 0)'} : {textDecoration: 'none'}}
+                     style={activeTab === 'animals' ? {textDecoration: min1000 ? 'underline' : 'none'} : {textDecoration: 'none'}}
                      onClick={() => setActiveTab('animals')}>Animaux
                 </div>
                 <div className={s.navigation__item}
-                     style={activeTab === 'contact' ? {textDecoration: min1000 ? 'underline' : 'none', backgroundColor: min1000 ? 'transparent' : 'rgb(176, 0, 0)'} : {textDecoration: 'none'}}
+                     style={activeTab === 'contact' ? {textDecoration: min1000 ? 'underline' : 'none'} : {textDecoration: 'none'}}
                      onClick={() => setActiveTab('contact')}>Contact
                 </div>
                 <a className={s.navigation__item}
                    href={'/login'}
-                     style={activeTab === 'connection' ? {textDecoration: min1000 ? 'underline' : 'none', backgroundColor: min1000 ? 'transparent' : 'rgb(176, 0, 0)', position: min1000 ? 'absolute' : 'unset', bottom: min1280 ? 40 : 20, left: min1280 ? 40 : min1000 ? 20 : 40, fontSize: min1000 ? 14 : 10} : {textDecoration: 'none', backgroundColor: 'black !important', position: min1000 ? 'absolute' : 'unset', bottom: min1280 ? 40 : 20, left: min1280 ? 40 : min1000 ? 20 : 40,fontSize: min1000 ? 14 : 10}}
+                     style={activeTab === 'connection' ? {textDecoration: min1000 ? 'underline' : 'none', bottom: min1280 ? 40 : 20, left: min1280 ? 40 : min1000 ? 20 : 40, fontSize: min1000 ? 14 : 10} : {textDecoration: 'none', backgroundColor: 'black !important', position: min1000 ? 'absolute' : 'unset', bottom: min1280 ? 40 : 20, left: min1280 ? 40 : min1000 ? 20 : 40,fontSize: min1000 ? 14 : 10}}
                      onClick={() => setActiveTab('connection')}>Connexion
                 </a>
             </div>
@@ -275,9 +284,10 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab}) => {
                                      marginBottom: 30,
                                      fontSize: 72,
                                      wordSpacing: '100vw',
-                                     textTransform: 'uppercase'
+                                     textTransform: 'uppercase',
+                                     alignSelf: 'flex-start'
                                  }}>
-                                léopard de Chine
+                                {min500 ? 'Bienvenue chez Arcadia' : 'Bienvenue'}
                             </div>
                             <div className={`${s.info__item} ${activeTab === 'info' ? s.visible : s.hidden}`}
                                  style={{marginBottom: 50}}>
@@ -415,7 +425,7 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab}) => {
                                         textTransform: 'uppercase',
                                         alignSelf: 'flex-start'
                                     }}>
-                                    Panthère noire
+                                    Animaux
                                 </div>
                                 <div className={`${s.info__item} ${activeTab === 'animals' ? s.visible : s.hidden}`}
                                      style={{marginBottom: 30, alignSelf: 'flex-start'}}>
@@ -465,7 +475,7 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab}) => {
                                         textTransform: 'uppercase',
                                         alignSelf: 'flex-start'
                                     }}>
-                                    lion
+                                    Contact
                                 </div>
                                 <div className={`${s.info__item} ${activeTab === 'contact' ? s.visible : s.hidden}`}
                                      style={{marginBottom: 50, alignSelf: 'flex-start'}}>

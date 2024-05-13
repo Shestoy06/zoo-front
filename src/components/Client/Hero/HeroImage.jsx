@@ -5,12 +5,14 @@ import HeroNavigation from "../HeroNavigation/HeroNavigation";
 import image1 from '../ui/splash/leaves/vecteezy_ai-genere-une-lisse-et-puissant-noir-panthere-rode-par-le_35784039.jpg'
 import image2 from '../ui/splash/leaves/vecteezy_ai-generated-detailed-portrait-of-a-magnificent-lion_41409956.jpg'
 import {useMediaQuery} from "@mui/material";
-//import image2 from '../ui/splash/leaves/lion.jpg'
 
 const HeroImage = () => {
     const [mousePos, setMousePos] = useState({})
     const [activeTab, setActiveTab] = useState('info');
     const [backgroundSrc, setBackgroundSrc] = useState(image)
+
+    const [fullScreenNav, setFullScreenNav] = useState(false)
+
 
     useEffect(() => {
         const handleMouseMove = (event) => {
@@ -53,11 +55,12 @@ const HeroImage = () => {
 
 
 
+
     return (
         <section className={s.layers} style={{backdropFilter: "saturate(180%)"}}>
 
-            <div className={`${s.navbar} ${showNavbar ? 'open' : ''}`} style={showNavbar ? {transform: 'translateX(100%)'} : {transform: 'translateX(-50%)'}}>
-                <HeroNavigation handleCloseNavbar={handleOnClick} activeTab={activeTab} setActiveTab={setActiveTab}/>
+            <div className={`${s.navbar} ${showNavbar ? 'open' : ''} ${!min500 && fullScreenNav && s.fullscreenNav}`} style={{transform: showNavbar ? 'translateX(100%)' : 'translateX(-50%)', width: !min500 && fullScreenNav ? '100vw !important' : !min1000 ? '50vw' : '60vw'}}>
+                <HeroNavigation handleCloseNavbar={handleOnClick} activeTab={activeTab} setActiveTab={setActiveTab} setFullScreenNav={setFullScreenNav} fullScreenNav={fullScreenNav}/>
             </div>
             <div className={`${s.layers__container} ${s.parallax} ${s.firstAppearing}`}
                  style={{transform: `rotateX(${mousePos.y}deg) rotateY(${mousePos.x}deg)`,}}>
@@ -66,10 +69,10 @@ const HeroImage = () => {
                 <div className={`${s.layers__item} ${s.layer_background} ${activeTab === 'contact' ? s.visible : s.hidden}`} style={{backgroundImage: `url(${image2})`, transform: showNavbar && !min1000 ? 'translateX(10%)' : 'translateX(0%)', transition: 'transform .6s ease'}}></div>
 
                 <div className={`${s.layers__item} ${s.layer_main}`}>
-                    <h1 className={`${s.main_content}`} style={showNavbar ? {transform: min1000 ? 'translateX(100%)' : min500 ? 'translateX(185%)' : 'translateX(120%)', display: 'block'} : {transform: 'translateX(0%)'}} >
+                    <h1 className={`${s.main_content}`} style={showNavbar ? {transform: min1000 ? 'translateX(100%)' : min500 ? 'translateX(185%)' : 'translateX(110%)', display: 'block'} : {transform: 'translateX(0%)'}} >
                         Arcadia
                     </h1>
-                    <div className={s.description} style={showNavbar ? {transform: min500 ? 'translateX(155%)' : 'translateX(70%)'} : {transform: 'translateX(-50%)'}}>Zoo naturel.</div>
+                    <div className={s.description} style={showNavbar ? {transform: min500 ? 'translateX(155%)' : 'translateX(60%)'} : {transform: 'translateX(-50%)'}}>Zoo naturel.</div>
                     <div className={s.button} style={showNavbar ? {opacity: 0} : {opacity: 1}} onClick={handleOnClick}>Commencer l'aventure</div>
                 </div>
             </div>

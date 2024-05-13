@@ -16,34 +16,31 @@
 
 @media (max-width: 1000px) {
     .navigation {
-        writing-mode: vertical-rl;
-        text-orientation: upright;
         position: absolute !important;
-        height: unset;
-        top: 40px;
-        flex-direction: row;
-        right: 0;
+        top: 0;
+        height: 100vh;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.8) !important;
         padding-left: 0;
-        transform: translateX(100%);
         transition: none;
         animation: unset;
-        gap: 10px;
+        gap: 20px;
+        align-items: center;
+        justify-content: center;
+        z-index: 199;
     }
 
     .navigation__item {
-        font-size: 12px !important;
+        font-size: 20px !important;
         letter-spacing: 0.1px;
-        clip-path: polygon(0 0, 100% 5%, 100% 95%, 0% 100%);
         border-top-right-radius: 15px;
         border-bottom-right-radius: 15px;
-        background-color: rgb(120, 0, 0);
         padding: 5px 5px 5px 2px;
         color: #ffffff !important;
     }
 
 
     .navigation__item:hover {
-        background-color: rgb(176, 0, 0);
         text-decoration: none;
     }
 
@@ -68,12 +65,16 @@
     .visible__navigation {
         opacity: 1;
         animation: unset !important;
+        transition: .3s all ease;
     }
 
     .hidden__navigation {
+        z-index: 0;
         opacity: 1;
         position: unset;
         animation: unset !important;
+        transition: .3s all ease;
+
     }
 
     .hidden__navigation_content {
@@ -137,6 +138,61 @@
     cursor: pointer;
     padding: 10px;
     z-index: 200;
+}
+
+.arrow {
+    display: none;
+    z-index: 198;
+}
+
+@media (max-width: 500px) {
+    .close_icon:nth-child(2) {
+        left: 5px;
+        width: 24px;
+        margin-top: 0 !important;
+    }
+
+
+
+    .close_icon svg {
+        font-size: 20px;
+    }
+
+;
+
+    .close_icon:nth-child(1) {
+    }
+
+    .close_icon_cross {
+        z-index: 198 !important;
+        right: 5px;
+    }
+
+    .close_icon {
+        top: 5px;
+    }
+
+    .arrow {
+        position: absolute;
+        top: 17px;
+        right: 0;
+        transform: translateX(100%);
+        display: block;
+        padding: 2px 2px 1px;
+        color: black;
+        background-color: white;
+        border-radius: 0 20px 20px 0;
+    }
+
+    .arrow svg {
+        font-size: 14px;
+    }
+
+    .navigation {
+        width: 100vw;
+    }
+
+;
 }
 
 .navigation__item {
@@ -248,10 +304,10 @@ textarea {
 
 @media (max-width: 500px) {
     .animals__content {
-        padding: 15px;
+        padding: 52px 15px 15px;
     }
     .info__content {
-        padding: 15px;
+        padding: 52px 15px 15px;
     }
 }
 
