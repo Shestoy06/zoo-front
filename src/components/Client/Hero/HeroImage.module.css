@@ -149,6 +149,10 @@ body {
     .layer_background {
         transform: translateX(10%);
     }
+    .navbar {
+        width: 60vw !important;
+        left: -60vw !important;
+    }
     .main_content  {
         font-size: 32px;
     }
