@@ -13,3 +13,16 @@ body, html {
   font-family: 'Roboto',sans-serif;
 }
 
+@font-face {
+  font-family: 'Roboto';
+  src: url('/public/fonts/Roboto-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('/public/fonts/FUTURA55REGULAR.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
