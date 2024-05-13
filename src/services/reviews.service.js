@@ -2,7 +2,7 @@ import axios from "axios";
 import moment from "moment/moment";
 
 class ReviewService {
-    URL = 'http://127.0.0.1:8000/api/review'
+    URL = 'https://desolate-tundra-35880-c76e6faf2a0f.herokuapp.com/api/review'
 
     async get() {
         return axios.get(this.URL).then(res => {

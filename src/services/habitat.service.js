@@ -2,16 +2,16 @@ import axios from "axios";
 import moment from "moment/moment";
 
 class HabitatService {
-    URL = 'http://127.0.0.1:8000/api/habitat'
+    URL = 'https://desolate-tundra-35880-c76e6faf2a0f.herokuapp.com/api/habitat'
 
     async get() {
         return axios.get(this.URL).then(res => res.data)
     }
     async getWithPhotos() {
-        return axios.get("http://127.0.0.1:8000/api/habitats-photos").then(res => res.data)
+        return axios.get("https://desolate-tundra-35880-c76e6faf2a0f.herokuapp.com/api/habitats-photos").then(res => res.data)
     }
     async getByName(name) {
-        return axios.get(`http://127.0.0.1:8000/api/animal/habitat/${name}`).then(res => res.data)
+        return axios.get(`https://desolate-tundra-35880-c76e6faf2a0f.herokuapp.com/api/animal/habitat/${name}`).then(res => res.data)
     }
 
     async put(habitat) {

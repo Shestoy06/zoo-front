@@ -1,7 +1,7 @@
 import axios from "axios";
 
 class RatesService {
-    URL = 'http://127.0.0.1:8000/api/rates'
+    URL = 'https://desolate-tundra-35880-c76e6faf2a0f.herokuapp.com/api/rates'
 
     async get() {
         return axios.get(this.URL).then(res => res.data)
