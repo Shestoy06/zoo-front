@@ -59,7 +59,7 @@ const HeroImage = () => {
     return (
         <section className={s.layers} style={{backdropFilter: "saturate(180%)"}}>
 
-            <div className={`${s.navbar} ${showNavbar ? 'open' : ''} ${!min500 && fullScreenNav && s.fullscreenNav}`} style={{transform: showNavbar ? 'translateX(100%)' : 'translateX(-50%)', width: !min500 && fullScreenNav ? '100vw !important' : min1000 ? '50vw' : '60vw', left: !min500 && fullScreenNav ? '-100vw !important' : min1000 ? '-50vw' : '-60vw'}}>
+            <div className={`${s.navbar} ${showNavbar ? 'open' : ''}`} style={{transform: showNavbar ? 'translateX(100%)' : 'translateX(-50%)', width: fullScreenNav ? '100vw' : min1000 ? '50vw' : '60vw', left: !min500 && fullScreenNav ? '-100vw' : min1000 ? '-50vw' : '-60vw'}}>
                 <HeroNavigation handleCloseNavbar={handleOnClick} activeTab={activeTab} setActiveTab={setActiveTab} setFullScreenNav={setFullScreenNav} fullScreenNav={fullScreenNav}/>
             </div>
             <div className={`${s.layers__container} ${s.parallax} ${s.firstAppearing}`}

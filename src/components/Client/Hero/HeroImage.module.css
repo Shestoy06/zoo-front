@@ -51,11 +51,6 @@ body {
     transition: all 1s ease; /* Animation transition */
 }
 
-.fullscreenNav {
-    width: 100vw !important;
-    left: -100vw !important;
-}
-
 
 .navbar_close {
     position: absolute;
@@ -148,10 +143,6 @@ body {
 @media (max-width: 1000px) {
     .layer_background {
         transform: translateX(10%);
-    }
-    .navbar {
-        width: 60vw !important;
-        left: -60vw !important;
     }
     .main_content  {
         font-size: 32px;
