@@ -99,7 +99,9 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScre
         }
         if (!min500) {
             widthForCard = '90%'
-
+        }
+        if (!min500 && fullScreenNav) {
+            widthForCard = '37%'
         }
 
         return (
@@ -186,7 +188,9 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScre
         }
         if (!min500) {
             widthForCard = '90%'
-
+        }
+        if (!min500 && fullScreenNav) {
+            widthForCard = '37%'
         }
 
         return (
@@ -298,7 +302,8 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScre
 
                             <div className={`${s.info__item} ${activeTab === 'info' ? s.visible : s.hidden}`}
                                  style={{alignSelf: 'flex-start', marginBottom: 30}}>
-                                <a href="#" className={`${s.button}`}>Voir tous les animaux</a>
+
+                                <a href="#" className={`${s.button}`} onClick={() => setActiveTab('animals')}>Voir tous les animaux</a>
                             </div>
                             <div className={`${s.info__item} ${activeTab === 'info' ? s.visible : s.hidden}`}
                                  style={{alignSelf: 'flex-start', width: '100%'}}>
