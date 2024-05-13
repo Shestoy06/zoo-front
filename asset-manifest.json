@@ -1,21 +1,19 @@
 {
   "files": {
-    "main.css": "/zoo-front/static/css/main.70a58d63.css",
-    "main.js": "/zoo-front/static/js/main.295b0cf5.js",
+    "main.css": "/zoo-front/static/css/main.595d69e9.css",
+    "main.js": "/zoo-front/static/js/main.f9483d86.js",
     "static/js/453.3895cafe.chunk.js": "/zoo-front/static/js/453.3895cafe.chunk.js",
     "static/media/vecteezy_ai-genere-bengale-tigre-majestueux-et-feroce-cache-dans_39600637.jpg": "/zoo-front/static/media/vecteezy_ai-genere-bengale-tigre-majestueux-et-feroce-cache-dans_39600637.22f71c189b744711bb31.jpg",
     "static/media/vecteezy_ai-generated-detailed-portrait-of-a-magnificent-lion_41409956.jpg": "/zoo-front/static/media/vecteezy_ai-generated-detailed-portrait-of-a-magnificent-lion_41409956.c4a099302d661a77b8d0.jpg",
     "static/media/vecteezy_ai-generated-close-up-of-an-urban-jungle-scene-nature_35846086.jpg": "/zoo-front/static/media/vecteezy_ai-generated-close-up-of-an-urban-jungle-scene-nature_35846086.dd998748c426750d1cad.jpg",
     "static/media/vecteezy_ai-genere-une-lisse-et-puissant-noir-panthere-rode-par-le_35784039.jpg": "/zoo-front/static/media/vecteezy_ai-genere-une-lisse-et-puissant-noir-panthere-rode-par-le_35784039.19f128daa736bb451be5.jpg",
-    "static/media/Futura-Regular.ttf": "/zoo-front/static/media/Futura-Regular.88fc69339cb42ac7496d.ttf",
-    "static/media/Roboto-Regular.ttf": "/zoo-front/static/media/Roboto-Regular.fc2b5060f7accec5cf74.ttf",
     "index.html": "/zoo-front/index.html",
-    "main.70a58d63.css.map": "/zoo-front/static/css/main.70a58d63.css.map",
-    "main.295b0cf5.js.map": "/zoo-front/static/js/main.295b0cf5.js.map",
+    "main.595d69e9.css.map": "/zoo-front/static/css/main.595d69e9.css.map",
+    "main.f9483d86.js.map": "/zoo-front/static/js/main.f9483d86.js.map",
     "453.3895cafe.chunk.js.map": "/zoo-front/static/js/453.3895cafe.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.70a58d63.css",
-    "static/js/main.295b0cf5.js"
+    "static/css/main.595d69e9.css",
+    "static/js/main.f9483d86.js"
   ]
 }
