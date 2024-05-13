@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/zoo-front/static/css/main.ede11345.css",
+    "main.js": "/zoo-front/static/js/main.af3651df.js",
+    "static/js/453.3895cafe.chunk.js": "/zoo-front/static/js/453.3895cafe.chunk.js",
+    "static/media/vecteezy_ai-genere-bengale-tigre-majestueux-et-feroce-cache-dans_39600637.jpg": "/zoo-front/static/media/vecteezy_ai-genere-bengale-tigre-majestueux-et-feroce-cache-dans_39600637.22f71c189b744711bb31.jpg",
+    "static/media/vecteezy_ai-generated-detailed-portrait-of-a-magnificent-lion_41409956.jpg": "/zoo-front/static/media/vecteezy_ai-generated-detailed-portrait-of-a-magnificent-lion_41409956.c4a099302d661a77b8d0.jpg",
+    "static/media/vecteezy_ai-generated-close-up-of-an-urban-jungle-scene-nature_35846086.jpg": "/zoo-front/static/media/vecteezy_ai-generated-close-up-of-an-urban-jungle-scene-nature_35846086.dd998748c426750d1cad.jpg",
+    "static/media/vecteezy_ai-genere-une-lisse-et-puissant-noir-panthere-rode-par-le_35784039.jpg": "/zoo-front/static/media/vecteezy_ai-genere-une-lisse-et-puissant-noir-panthere-rode-par-le_35784039.19f128daa736bb451be5.jpg",
+    "index.html": "/zoo-front/index.html",
+    "main.ede11345.css.map": "/zoo-front/static/css/main.ede11345.css.map",
+    "main.af3651df.js.map": "/zoo-front/static/js/main.af3651df.js.map",
+    "453.3895cafe.chunk.js.map": "/zoo-front/static/js/453.3895cafe.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ede11345.css",
+    "static/js/main.af3651df.js"
+  ]
+}
