@@ -21,14 +21,7 @@ body, html {
   font-style: normal;
   font-display: swap;
 }
-@font-face {
-  font-family: 'Roboto';
-  src: url('/public/fonts/FUTURA55REGULAR.woff?v=1.0') format('woff');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
 
-}
 @font-face {
   font-family: 'Roboto';
   src: url('/public/fonts/Roboto-Regular.woff2?v=1.0') format('woff2');
@@ -37,12 +30,5 @@ body, html {
   font-display: swap;
 
 }
-@font-face {
-  font-family: 'Roboto';
-  src: url('/public/fonts/FUTURA55REGULAR.woff2?v=1.0') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
 
-}
 
