@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/zoo-front/static/css/main.678af58d.css",
-    "main.js": "/zoo-front/static/js/main.0f377166.js",
+    "main.css": "/zoo-front/static/css/main.76a98d59.css",
+    "main.js": "/zoo-front/static/js/main.bce290bf.js",
     "static/js/453.3895cafe.chunk.js": "/zoo-front/static/js/453.3895cafe.chunk.js",
     "static/media/vecteezy_ai-genere-bengale-tigre-majestueux-et-feroce-cache-dans_39600637.jpg": "/zoo-front/static/media/vecteezy_ai-genere-bengale-tigre-majestueux-et-feroce-cache-dans_39600637.22f71c189b744711bb31.jpg",
     "static/media/vecteezy_ai-generated-detailed-portrait-of-a-magnificent-lion_41409956.jpg": "/zoo-front/static/media/vecteezy_ai-generated-detailed-portrait-of-a-magnificent-lion_41409956.c4a099302d661a77b8d0.jpg",
@@ -12,12 +12,12 @@
     "static/media/FUTURA55REGULAR.woff2?v=1.0": "/zoo-front/static/media/FUTURA55REGULAR.3adc58b79c7a05d78878.woff2",
     "static/media/Roboto-Regular.woff2?v=1.0": "/zoo-front/static/media/Roboto-Regular.9429985be4f46ec8fcfc.woff2",
     "index.html": "/zoo-front/index.html",
-    "main.678af58d.css.map": "/zoo-front/static/css/main.678af58d.css.map",
-    "main.0f377166.js.map": "/zoo-front/static/js/main.0f377166.js.map",
+    "main.76a98d59.css.map": "/zoo-front/static/css/main.76a98d59.css.map",
+    "main.bce290bf.js.map": "/zoo-front/static/js/main.bce290bf.js.map",
     "453.3895cafe.chunk.js.map": "/zoo-front/static/js/453.3895cafe.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.678af58d.css",
-    "static/js/main.0f377166.js"
+    "static/css/main.76a98d59.css",
+    "static/js/main.bce290bf.js"
   ]
 }
