@@ -330,7 +330,7 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScre
                                      alignSelf: 'flex-start',
                                      fontFamily: 'Futura, sans-serif'
                                  }}>
-                                {min500 ? 'Bienvenue chez Arcadia' : 'Bienvenue'}
+                                Bienvenue chez Arcadia
                             </div>
                             <div className={`${s.info__item} ${activeTab === 'info' ? s.visible : s.hidden}`}
                                  style={{marginBottom: 50, fontFamily: 'Futura, sans-serif'}}>
