@@ -10,7 +10,7 @@ body, html {
 }
 
 .root {
-  font-family: 'Vazir', sans-serif;
+  font-family: 'Vazi', sans-serif;
 
 }
 
@@ -38,8 +38,8 @@ body, html {
   font-display: swap;
 }
 @font-face {
-  font-family: FuturaRegular;
-  src: url('/public/fonts/FUTURA55REGULAR.woff') format('woff');
+  font-family: Futura;
+  src: url('/public/fonts/FUTURA65MEDIUM.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
