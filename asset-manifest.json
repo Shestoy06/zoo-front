@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/zoo-front/static/css/main.4b04fe0a.css",
+    "main.css": "/zoo-front/static/css/main.eceabda3.css",
     "main.js": "/zoo-front/static/js/main.997cc3dc.js",
     "static/js/453.3895cafe.chunk.js": "/zoo-front/static/js/453.3895cafe.chunk.js",
     "static/media/vecteezy_ai-genere-bengale-tigre-majestueux-et-feroce-cache-dans_39600637.jpg": "/zoo-front/static/media/vecteezy_ai-genere-bengale-tigre-majestueux-et-feroce-cache-dans_39600637.22f71c189b744711bb31.jpg",
@@ -12,12 +12,12 @@
     "static/media/FUTURA55REGULAR.woff2": "/zoo-front/static/media/FUTURA55REGULAR.3adc58b79c7a05d78878.woff2",
     "static/media/Roboto-Regular.woff2?v=1.0": "/zoo-front/static/media/Roboto-Regular.9429985be4f46ec8fcfc.woff2",
     "index.html": "/zoo-front/index.html",
-    "main.4b04fe0a.css.map": "/zoo-front/static/css/main.4b04fe0a.css.map",
+    "main.eceabda3.css.map": "/zoo-front/static/css/main.eceabda3.css.map",
     "main.997cc3dc.js.map": "/zoo-front/static/js/main.997cc3dc.js.map",
     "453.3895cafe.chunk.js.map": "/zoo-front/static/js/453.3895cafe.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4b04fe0a.css",
+    "static/css/main.eceabda3.css",
     "static/js/main.997cc3dc.js"
   ]
 }
