@@ -17,10 +17,10 @@ const EmployeeRoutes = ({logOut}) => {
             <div className={s.content}>
                 <div><Toaster/></div>
                 <Routes>
-                    <Route element={<RatesDataTable/>} path={'/employee/rates'}/>
-                    <Route element={<FoodDataTable/>} path={'/employee/food'}/>
-                    <Route element={<ServicesDataTable/>} path={'/employee/services'}/>
-                    <Route element={<Navigate to={'/employee/rates'} />} path='*'></Route>
+                    <Route element={<RatesDataTable/>} path={'/zoo-front/employee/rates'}/>
+                    <Route element={<FoodDataTable/>} path={'/zoo-front/employee/food'}/>
+                    <Route element={<ServicesDataTable/>} path={'/zoo-front/employee/services'}/>
+                    <Route element={<Navigate to={'/zoo-front/employee/rates'} />} path='*'></Route>
                 </Routes>
             </div>
 

@@ -116,7 +116,7 @@
 
     .button {
         padding: 4px 10px !important;
-        font-size: 14px !important;
+        font-size: 12px !important;
     }
 
     .reviewInput {
@@ -145,6 +145,8 @@
     z-index: 198;
 }
 
+
+
 @media (max-width: 500px) {
     .close_icon:nth-child(2) {
         left: 5px;
@@ -152,7 +154,11 @@
         margin-top: 0 !important;
     }
 
-
+    .icons_container {
+        z-index: 200;
+        background: rgb(0,0,0);
+        background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(255, 255, 255, 0) 100%);
+    }
 
     .close_icon svg {
         font-size: 20px;

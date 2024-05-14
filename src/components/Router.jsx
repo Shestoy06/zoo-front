@@ -31,10 +31,10 @@ const Router = () => {
     return (
 
         <Routes>
-            <Route path={'/login'} element={<Login setUser={setUser}/>}/>
-            <Route path={'/home'} element={<Home/>}/>
+            <Route path={'/zoo-front/login'} element={<Login setUser={setUser}/>}/>
+            <Route path={'/zoo-front/home'} element={<Home/>}/>
             <Route path={'/image'} element={<HeroImage/>}/>
-            <Route element={<Navigate to={role ? '/login' : '/home'} />} path='*'></Route>
+            <Route element={<Navigate to={role ? '/zoo-front/login' : '/zoo-front/home'} />} path='*'></Route>
         </Routes>
 
     )

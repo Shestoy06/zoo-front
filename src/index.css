@@ -5,12 +5,13 @@ body {
 }
 
 body, html {
+  font-family: 'Vazir', sans-serif;
   -webkit-tap-highlight-color: transparent;
-  font-family: 'Roboto',sans-serif;
 }
 
 .root {
-  font-family: 'Roboto',sans-serif;
+  font-family: 'Vazir', sans-serif;
+
 }
 
 @font-face {

@@ -17,10 +17,10 @@ const VetRoutes = ({logOut}) => {
             <div className={s.content}>
                 <div><Toaster/></div>
                 <Routes>
-                    <Route element={<FoodDataTable withToolBar={false} withActions={false}/>} path={'/veterinarian/food'}/>
-                    <Route element={<ReviewsDataTable withToolBar={true}/>} path={'/veterinarian/reports'}/>
-                    <Route element={<HabitatsDataTable withToolBar={false} noDelete={true} imageModal={false} forVet={true}/>} path={'/veterinarian/habitat'}/>
-                    <Route element={<Navigate to={'/veterinarian/reports'} />} path='*'></Route>
+                    <Route element={<FoodDataTable withToolBar={false} withActions={false}/>} path={'/zoo-front/veterinarian/food'}/>
+                    <Route element={<ReviewsDataTable withToolBar={true}/>} path={'/zoo-front/veterinarian/reports'}/>
+                    <Route element={<HabitatsDataTable withToolBar={false} noDelete={true} imageModal={false} forVet={true}/>} path={'/zoo-front/veterinarian/habitat'}/>
+                    <Route element={<Navigate to={'/zoo-front/veterinarian/reports'} />} path='*'></Route>
                 </Routes>
             </div>
 

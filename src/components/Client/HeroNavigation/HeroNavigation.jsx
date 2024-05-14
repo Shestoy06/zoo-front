@@ -70,7 +70,7 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScre
     const min1280 = useMediaQuery('(min-width:1280px)');
     const min640 = useMediaQuery('(min-width:640px)');
     const min500 = useMediaQuery('(min-width:500px)');
-    const min370 = useMediaQuery('(min-width:370px)');
+    const min410 = useMediaQuery('(min-width:410px)');
 
     const showAnimals = () => {
 
@@ -247,21 +247,27 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScre
 
     return (
         <div style={{width: '100%', height: '100%', display: 'flex', gap: 10, position: 'relative', fontFamily: 'Roboto, sans-serif'}}>
-            <div className={`${s.close_icon} ${s.close_icon_cross}`}  onClick={() => {
-                if(fullScreenNav) {
-                    setFullScreenNav(false)
-                } else {
-                    handleCloseNavbar()
-                }}}><CloseIcon/></div>
-            <div className={s.close_icon}  onClick={() => {
-                setHideMenu(!hideMenu)
-            }} style={{marginTop: 40}}><MenuIcon/>
+            <div style={{width: '100%', height: 50, position: 'absolute', top: 0, left: 0}}  className={s.icons_container}>
+                <div className={`${s.close_icon} ${s.close_icon_cross}`} style={{display: !hideMenu && 'none'}} onClick={() => {
+                    if (fullScreenNav) {
+                        setFullScreenNav(false)
+                    } else {
+                        handleCloseNavbar()
+                    }
+                }}><CloseIcon/></div>
+                <div className={s.close_icon} onClick={() => {
+                    setHideMenu(!hideMenu)
+                }} style={{marginTop: 40}}><MenuIcon/></div>
             </div>
             <div className={s.arrow} onClick={() => setFullScreenNav(true)}><ArrowForwardIosIcon/></div>
-            <div className={`${s.navigation} ${hideMenu ? s.hidden__navigation : s.visible__navigation}`} style={{fontFamily: 'Roboto, sans-serif'}} onClick={() => {if (!hideMenu) setHideMenu(!hideMenu)}}>
+            <div className={`${s.navigation} ${hideMenu ? s.hidden__navigation : s.visible__navigation}`}
+                 style={{fontFamily: 'Roboto, sans-serif'}} onClick={() => {
+                if (!hideMenu) setHideMenu(!hideMenu)
+            }}>
                 <div className={s.navigation__item}
                      style={activeTab === 'info' ? {textDecoration: min1000 ? 'underline' : 'none'} : {textDecoration: 'none'}}
-                     onClick={() => setActiveTab('info')}><span style={{fontFamily: 'Roboto, sans-serif'}}>Accueil</span>
+                     onClick={() => setActiveTab('info')}><span
+                    style={{fontFamily: 'Roboto, sans-serif'}}>Accueil</span>
                 </div>
                 <div className={s.navigation__item}
                      style={activeTab === 'animals' ? {textDecoration: min1000 ? 'underline' : 'none'} : {textDecoration: 'none'}}
@@ -291,6 +297,11 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScre
                    onClick={() => setActiveTab('connection')}><span
                     style={{fontFamily: 'Roboto, sans-serif'}}>Conexion</span>
                 </a>
+                <div className={s.navigation__item}
+                     style={{textDecoration: 'none'}}
+                     onClick={() => setActiveTab('contact')}>
+                    <span style={{fontFamily: 'Roboto, sans-serif', fontSize: 8, justifySelf: "flex-end", position: 'absolute', bottom: 20, left: 20, textTransform: 'none'}}>Made with ❤️ by Andrei Silin</span>
+                </div>
             </div>
             <div style={{position: 'relative', width: '100%'}}>
                 <div className={s.navigation__content}>
@@ -305,7 +316,7 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScre
                                      wordSpacing: '100vw',
                                      textTransform: 'uppercase',
                                      alignSelf: 'flex-start',
-                                     fontFamily: 'Roboto, sans-serif'
+                                     fontFamily: 'Futura, sans-serif'
                                  }}>
                                 {min500 ? 'Bienvenue chez Arcadia' : 'Bienvenue'}
                             </div>
@@ -319,7 +330,7 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScre
                             <div className={`${s.info__item} ${activeTab === 'info' ? s.visible : s.hidden}`}
                                  style={{alignSelf: 'flex-start', marginBottom: 30}}>
 
-                                <a href="#" className={`${s.button}`} style={{fontFamily: 'Roboto, sans-serif'}} onClick={() => setActiveTab('animals')}>Voir tous les animaux</a>
+                                <a href="#" className={`${s.button}`} style={{fontFamily: 'Futura, sans-serif'}} onClick={() => setActiveTab('animals')}>Voir tous les animaux</a>
                             </div>
                             <div className={`${s.info__item} ${activeTab === 'info' ? s.visible : s.hidden}`}
                                  style={{alignSelf: 'flex-start', width: '100%'}}>
@@ -405,7 +416,7 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScre
                                         </div>
 
                                         <div className={`${s.button} ${habitatsVisible && s.buttonSelected}`}
-                                             style={{marginBottom: 30}}
+                                             style={{marginBottom: 30, fontFamily: 'Futura, sans-serif'}}
                                              onClick={() => {
                                                  if (!reviewText || !reviewPseudo) {
                                                      toast.error("Impossible d'envoyer votre avis: \n les champs sont vides ou invalides")
@@ -446,7 +457,7 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScre
                                         textTransform: 'uppercase',
                                         alignSelf: 'flex-start'
                                     }}>
-                                    <span style={{fontFamily: 'Roboto, sans-serif'}}>Animaux</span>
+                                    <span style={{fontFamily: 'Futura, sans-serif'}}>Animaux</span>
                                 </div>
                                 <div className={`${s.info__item} ${activeTab === 'animals' ? s.visible : s.hidden}`}
                                      style={{marginBottom: 30, alignSelf: 'flex-start', fontFamily: 'Roboto, sans-serif'}}>
@@ -455,22 +466,22 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScre
                                 </div>
                                 <div style={{marginBottom: 15, display: 'flex', gap: 10}}>
                                     <a href="#" className={`${s.button} ${habitatsVisible && s.buttonSelected}`}
-                                       style={{fontFamily: 'Roboto, sans-serif'}}
+                                       style={{fontFamily: 'Futura, sans-serif'}}
                                        onClick={() => {
                                            setHabitatsVisible(true)
                                        }}>Habitats</a>
                                     <a href="#"
                                        className={`${s.button} ${habitatSelected === ALL_ANIMALS && !habitatsVisible && s.buttonSelected}`}
-                                       style={{fontFamily: 'Roboto, sans-serif'}}
+                                       style={{fontFamily: 'Futura, sans-serif'}}
                                        onClick={() => {
                                            setHabitatsVisible(false)
                                            setSelectedHabitat(ALL_ANIMALS)
-                                       }}>{min370 ? 'Tous les animaux' : 'Animaux'}</a>
+                                       }}>{min410 ? 'Tous les animaux' : 'Animaux'}</a>
                                 </div>
                                 <div style={{marginBottom: 30, display: 'flex', gap: 10}}>
                                     {!isLoadingHabitats && !errorHabitats && habitats.map(habitat => <a href="#"
                                                                                                         className={`${s.button} ${habitatSelected === habitat.habitat && !habitatsVisible && s.buttonSelected}`}
-                                                                                                        style={{fontFamily: 'Roboto, sans-serif'}}
+                                                                                                        style={{fontFamily: 'Futura, sans-serif'}}
                                                                                                         onClick={() => {
                                                                                                             setHabitatsVisible(false)
                                                                                                             setSelectedHabitat(habitat.habitat)
@@ -498,7 +509,7 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScre
                                         wordSpacing: '100vw',
                                         textTransform: 'uppercase',
                                         alignSelf: 'flex-start',
-                                        fontFamily: 'Roboto, sans-serif'
+                                        fontFamily: 'Futura, sans-serif'
                                     }}>
                                     Contact
                                 </div>
@@ -573,7 +584,7 @@ export const ContactUs = () => {
                 <textarea name="message" value={message} required={true} onChange={(e) => setMessage(e.target.value)}
                           className={s.reviewInput}/>
             </div>
-            <input type="submit" value="Envoyer" className={s.button}/>
+            <input type="submit" value="Envoyer" className={s.button} style={{fontFamily: 'Futura, sans-serif'}}/>
         </form>
     );
 };

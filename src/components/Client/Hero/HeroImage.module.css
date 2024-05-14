@@ -153,8 +153,8 @@ body {
     }
 
     .button {
-        padding: 4px 10px !important;
-        font-size: 12px !important;
+        padding: 6px 12px !important;
+        font-size: 16px !important;
     }
 }
 
@@ -287,7 +287,7 @@ body {
     background: white;
     border-radius: 20px;
     color: black;
-    font-size: 18px;
+    font-size: 24px;
     font-family: Futura, sans-serif;
     text-decoration: unset;
     border: 1px solid transparent;

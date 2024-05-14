@@ -19,13 +19,13 @@ const AdminRoutes = ({logOut}) => {
             <div className={s.content}>
                 <div><Toaster/></div>
                 <Routes>
-                    <Route element={<AnimalDataTable/>} path={'/admin/animals'}/>
-                    <Route element={<AnimalViewsDataTable/>} path={'/admin/animal-views'}/>
-                    <Route element={<ReviewsDataTable withToolBar={false} withActions={false}/>} path={'/admin/reports'}/>
-                    <Route element={<ServicesDataTable/>} path={'/admin/services'}/>
-                    <Route element={<HabitatsDataTable withToolBar={true}/>} path={'/admin/habitat'}/>
-                    <Route element={<UserDataTable/>} path={'/admin/users'}/>
-                    <Route element={<Navigate to={'/admin/animals'} />} path='*'></Route>
+                    <Route element={<AnimalDataTable/>} path={'/zoo-front/admin/animals'}/>
+                    <Route element={<AnimalViewsDataTable/>} path={'/zoo-front/admin/animal-views'}/>
+                    <Route element={<ReviewsDataTable withToolBar={false} withActions={false}/>} path={'/zoo-front/admin/reports'}/>
+                    <Route element={<ServicesDataTable/>} path={'/zoo-front/admin/services'}/>
+                    <Route element={<HabitatsDataTable withToolBar={true}/>} path={'/zoo-front/admin/habitat'}/>
+                    <Route element={<UserDataTable/>} path={'/zoo-front/admin/users'}/>
+                    <Route element={<Navigate to={'/zoo-front/admin/animals'} />} path='*'></Route>
                 </Routes>
             </div>
         </div>

@@ -206,7 +206,7 @@ const CrudTable = ({columns, data, withActions = true, getRowId, noDelete = fals
             <div>
                 <h1 style={{textDecoration: "underline", textDecorationColor: "#03c403", marginLeft: 20}}>{title}</h1>
             </div>
-            <div style={{width: '100%', backgroundColor: "white", borderRadius: 10}}>
+            <div style={{width: '100%', backgroundColor: "white", borderRadius: 10, fontFamily: 'Arial, sans-serif !important'}}>
                 <DataGrid
                     sx={{
                         "& .MuiDataGrid-cell:focus, & .MuiDataGrid-cell:focus-within": {
