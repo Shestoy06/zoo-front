@@ -289,7 +289,8 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScre
                                      fontSize: 72,
                                      wordSpacing: '100vw',
                                      textTransform: 'uppercase',
-                                     alignSelf: 'flex-start'
+                                     alignSelf: 'flex-start',
+                                     fontFamily: 'Roboto, sans-serif'
                                  }}>
                                 {min500 ? 'Bienvenue chez Arcadia' : 'Bienvenue'}
                             </div>
