@@ -146,7 +146,7 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScre
                                             position: 'absolute',
                                             left: 10,
                                             bottom: 10,
-                                            fontSize: !min1000 && 14
+                                            fontSize: !min1000 && 16
                                         }}>{image.animal}</div>
                                     </div>
                                     <div className={(hideMenu && !min1000) || (expandedCardId && !min1000) === index ? s.animals__image_content : s.animals__image_content_hidden} >
@@ -225,14 +225,14 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScre
                                     position: 'absolute',
                                     left: 10,
                                     bottom: 10,
-                                    fontSize: min1000 ? 18 : 14
+                                    fontSize: min1000 ? 20 : 16
                                 }}>{image.habitat}</div>
                             </div>
-                            <div style={{padding: 10, fontSize: 16}}>
-                                <div style={{marginBottom: 5, fontSize: min1000 ? 18 : 14}}>Description:</div>
-                                <div style={{marginBottom: 10, fontSize: min1000 ? 18 : 12}}>{image.description}</div>
-                                <div style={{fontSize: min1000 ? 18 : 14}}>Les animaux:</div>
-                                <ul  style={{margin: 0, paddingLeft: 15, paddingTop: 5, fontSize: min1000 ? 18 : 12}}>
+                            <div style={{padding: 10, fontSize: 18}}>
+                                <div style={{marginBottom: 5, fontSize: min1000 ? 20 : 16}}>Description:</div>
+                                <div style={{marginBottom: 10, fontSize: min1000 ? 20 : 14}}>{image.description}</div>
+                                <div style={{fontSize: min1000 ? 20 : 16}}>Les animaux:</div>
+                                <ul  style={{margin: 0, paddingLeft: 15, paddingTop: 5, fontSize: min1000 ? 20 : 14}}>
                                     <li>{image.animals[0] ? image.animals[0] : 'Pas encore d\'animaux'}</li>
                                     {image.animals[1] && <li>{image.animals[1]}</li>}
                                     {image.animals[2] && <li>{image.animals[2]}...</li>}
@@ -279,14 +279,14 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScre
                        textDecoration: min1000 ? 'underline' : 'none',
                        bottom: min1280 ? 40 : 20,
                        left: min1280 ? 40 : min1000 ? 20 : 40,
-                       fontSize: min1000 ? 14 : 10
+                       fontSize: min1000 ? 16 : 12
                    } : {
                        textDecoration: 'none',
                        backgroundColor: 'black !important',
                        position: min1000 ? 'absolute' : 'unset',
                        bottom: min1280 ? 40 : 20,
                        left: min1280 ? 40 : min1000 ? 20 : 40,
-                       fontSize: min1000 ? 14 : 10
+                       fontSize: min1000 ? 16 : 12
                    }}
                    onClick={() => setActiveTab('connection')}><span
                     style={{fontFamily: 'Roboto, sans-serif'}}>Conexion</span>
@@ -342,7 +342,7 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScre
                                             : errorServices ? <div>Une erreur est survenue</div>
                                                 : services.map(service => <div style={{marginBottom: 20}}>
                                                     <div style={{fontFamily: 'Roboto, sans-serif'}}>{service.name}</div>
-                                                    <div style={{fontSize: min1000 ? 18 : 12, fontFamily: 'Roboto, sans-serif'}}>{service.description}</div>
+                                                    <div style={{fontSize: min1000 ? 20 : 14, fontFamily: 'Roboto, sans-serif'}}>{service.description}</div>
                                                 </div>)}
                                     </AccordionDetails>
                                 </Accordion>
@@ -368,7 +368,7 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScre
                                             : errorHabitats ? <div>Une erreur est survenue</div>
                                                 : habitats.map(habitat => <div style={{marginBottom: 20}}>
                                                     <div style={{fontFamily: 'Roboto, sans-serif'}}>{habitat.habitat}</div>
-                                                    <div style={{fontSize: min1000 ? 18 : 12, fontFamily: 'Roboto, sans-serif'}}>{habitat.description}</div>
+                                                    <div style={{fontSize: min1000 ? 20 : 14, fontFamily: 'Roboto, sans-serif'}}>{habitat.description}</div>
                                                 </div>)}
                                     </AccordionDetails>
                                 </Accordion>
@@ -391,13 +391,13 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScre
                                     </AccordionSummary>
                                     <AccordionDetails>
                                     <div style={{marginBottom: 20, fontFamily: 'Roboto, sans-serif'}}>Laisser votre avis</div>
-                                        <div style={{fontSize: min1000 ? 18 : 12, marginBottom: 10, fontFamily: 'Roboto, sans-serif'}}>Votre nom:</div>
+                                        <div style={{fontSize: min1000 ? 20 : 14, marginBottom: 10, fontFamily: 'Roboto, sans-serif'}}>Votre nom:</div>
                                         <div style={{marginBottom: 10}}>
                                             <input type="text" value={reviewPseudo}
                                                    className={s.reviewInput}
                                                    onChange={(e) => setReviewPseudo(e.target.value)}/>
                                         </div>
-                                        <div style={{fontSize: min1000 ? 18 : 12, marginBottom: 10, fontFamily: 'Roboto, sans-serif'}}>Votre message:</div>
+                                        <div style={{fontSize: min1000 ? 20 : 14, marginBottom: 10, fontFamily: 'Roboto, sans-serif'}}>Votre message:</div>
                                         <div style={{marginBottom: 10}}>
                                             <textarea type="text" value={reviewText}
                                                       className={s.reviewInput}
@@ -424,7 +424,7 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScre
                                                     if (rate.status === 'Accepted') {
                                                         return (<div style={{marginBottom: 20}}>
                                                             <div style={{marginBottom: 10, fontFamily: 'Roboto, sans-serif'}}>{rate.pseudo}</div>
-                                                            <div style={{fontSize: min1000 ? 18 : 12, fontFamily: 'Roboto, sans-serif'}}>{rate.message}</div>
+                                                            <div style={{fontSize: min1000 ? 20 : 14, fontFamily: 'Roboto, sans-serif'}}>{rate.message}</div>
                                                         </div>)
                                                     }
                                                 })}
@@ -552,21 +552,21 @@ export const ContactUs = () => {
 
     return (
         <form ref={form} onSubmit={sendEmail}>
-            <div style={{marginBottom: 5, fontSize: min1000 ? 18 : 14}}>
+            <div style={{marginBottom: 5, fontSize: min1000 ? 20 : 16}}>
                 <label style={{fontFamily: 'Roboto, sans-serif'}}>Votre nom:</label>
             </div>
             <div style={{marginBottom: 20}}>
                 <input type="text" value={name} required={true} onChange={(e) => setName(e.target.value)}
                        className={s.reviewInput} name="from_name"/>
             </div>
-            <div style={{marginBottom: 5, fontSize: min1000 ? 18 : 14}}>
+            <div style={{marginBottom: 5, fontSize: min1000 ? 20 : 16}}>
                 <label style={{fontFamily: 'Roboto, sans-serif'}}>Email:</label>
             </div>
             <div style={{marginBottom: 20}}>
                 <input type="email" required={true} value={email} onChange={(e) => setEmail(e.target.value)}
                        className={s.reviewInput} name="email_to_answer"/>
             </div>
-            <div style={{marginBottom: 5, fontSize: min1000 ? 18 : 14}}>
+            <div style={{marginBottom: 5, fontSize: min1000 ? 20 : 16}}>
                 <label style={{fontFamily: 'Roboto, sans-serif'}}>Message:</label>
             </div>
             <div style={{marginBottom: 20}}>
