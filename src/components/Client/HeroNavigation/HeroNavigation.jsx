@@ -105,7 +105,7 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScre
         }
 
         return (
-            <div className={s.animals__images}>
+            <div className={s.animals__images} style={{fontFamily: 'Roboto, sans-serif'}}>
                 {images.map((image, index) => {
                     if (image.animalHabitat === habitatSelected || habitatSelected === 'All') {
                         return (
@@ -194,7 +194,7 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScre
         }
 
         return (
-            <div style={{display: 'flex', flexWrap: 'wrap', gap: 20}}>
+            <div style={{display: 'flex', flexWrap: 'wrap', gap: 20, fontFamily: 'Roboto, sans-serif'}}>
                 {habitats.map((image, index) =>
                         <div
                             className={`${expandedCardId === index && s.expandedCard} ${s.animals__image}`}
@@ -246,7 +246,7 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScre
     }
 
     return (
-        <div style={{width: '100%', height: '100%', display: 'flex', gap: 10, position: 'relative'}}>
+        <div style={{width: '100%', height: '100%', display: 'flex', gap: 10, position: 'relative', fontFamily: 'Roboto, sans-serif'}}>
             <div className={`${s.close_icon} ${s.close_icon_cross}`}  onClick={() => {
                 if(fullScreenNav) {
                     setFullScreenNav(false)
