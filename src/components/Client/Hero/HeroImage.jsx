@@ -73,7 +73,7 @@ const HeroImage = () => {
                         Arcadia
                     </h1>
                     <div className={s.description} style={showNavbar ? {transform: min500 ? 'translateX(155%)' : 'translateX(60%)'} : {transform: 'translateX(-50%)'}}>Zoo naturel.</div>
-                    <div className={s.button} style={showNavbar ? {opacity: 0} : {opacity: 1}} onClick={handleOnClick}>Commencer l'aventure</div>
+                    <div className={s.button} style={{opacity : showNavbar ? 0 : 1, fontFamily: 'Futura, sans-serif'}} onClick={handleOnClick}>Commencer l'aventure</div>
                 </div>
             </div>
         </section>
