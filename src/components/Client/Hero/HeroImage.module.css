@@ -11,20 +11,9 @@
     --logo-size: calc(var(--ratio) * 7.8);
 }
 
-@font-face {
-    font-family: Futura;
-    src: url('/public/fonts/FUTURA55REGULAR.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-@font-face {
-    font-family: Futura;
-    src: url('/public/fonts/FUTURA55REGULAR.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
+
+
+
 
 @font-face {
     font-family: Roboto;

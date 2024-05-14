@@ -15,7 +15,7 @@ body, html {
 }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: Roboto;
   src: url('/public/fonts/Roboto-Regular.woff?v=1.0') format('woff');
   font-weight: normal;
   font-style: normal;
@@ -23,8 +23,30 @@ body, html {
 }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: Roboto;
   src: url('/public/fonts/Roboto-Regular.woff2?v=1.0') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Futura;
+  src: url('/public/fonts/FUTURA65MEDIUM.ttf') format('ttf');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: FuturaRegular;
+  src: url('/public/fonts/FUTURA55REGULAR.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: FuturaBold;
+  src: url('/public/fonts/FUTURA75BOLD.ttf') format('ttf');
   font-weight: normal;
   font-style: normal;
   font-display: swap;

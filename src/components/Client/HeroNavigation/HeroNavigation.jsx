@@ -72,6 +72,8 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScre
     const min500 = useMediaQuery('(min-width:500px)');
     const min410 = useMediaQuery('(min-width:410px)');
 
+    const fontSizeNormalTextFutura = min1000 ? 14 : 10
+
     const showAnimals = () => {
 
         if (isLoadingImages) return <div>Chargement...</div>
@@ -105,7 +107,7 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScre
         }
 
         return (
-            <div className={s.animals__images} style={{fontFamily: 'Roboto, sans-serif'}}>
+            <div className={s.animals__images} style={{fontFamily: 'Futura, sans-serif'}}>
                 {images.map((image, index) => {
                     if (image.animalHabitat === habitatSelected || habitatSelected === 'All') {
                         return (
@@ -146,7 +148,7 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScre
                                             position: 'absolute',
                                             left: 10,
                                             bottom: 10,
-                                            fontSize: !min1000 && 16
+                                            fontSize: !min1000 && 14
                                         }}>{image.animal}</div>
                                     </div>
                                     <div className={(hideMenu && !min1000) || (expandedCardId && !min1000) === index ? s.animals__image_content : s.animals__image_content_hidden} >
@@ -194,7 +196,7 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScre
         }
 
         return (
-            <div style={{display: 'flex', flexWrap: 'wrap', gap: 20, fontFamily: 'Roboto, sans-serif'}}>
+            <div style={{display: 'flex', flexWrap: 'wrap', gap: 20, fontFamily: 'Futura, sans-serif'}}>
                 {habitats.map((image, index) =>
                         <div
                             className={`${expandedCardId === index && s.expandedCard} ${s.animals__image}`}
@@ -225,14 +227,14 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScre
                                     position: 'absolute',
                                     left: 10,
                                     bottom: 10,
-                                    fontSize: min1000 ? 20 : 16
+                                    fontSize: min1000 ? 18 : 14
                                 }}>{image.habitat}</div>
                             </div>
-                            <div style={{padding: 10, fontSize: 18}}>
-                                <div style={{marginBottom: 5, fontSize: min1000 ? 20 : 16}}>Description:</div>
-                                <div style={{marginBottom: 10, fontSize: min1000 ? 20 : 14}}>{image.description}</div>
-                                <div style={{fontSize: min1000 ? 20 : 16}}>Les animaux:</div>
-                                <ul  style={{margin: 0, paddingLeft: 15, paddingTop: 5, fontSize: min1000 ? 20 : 14}}>
+                            <div style={{padding: 10, fontSize: 16}}>
+                                <div style={{marginBottom: 5, fontSize: min1000 ? 18 : 14}}>Description:</div>
+                                <div style={{marginBottom: 10, fontSize: min1000 ? 18 : 12}}>{image.description}</div>
+                                <div style={{fontSize: min1000 ? 18 : 14}}>Les animaux:</div>
+                                <ul  style={{margin: 0, paddingLeft: 15, paddingTop: 5, fontSize: min1000 ? 18 : 12}}>
                                     <li>{image.animals[0] ? image.animals[0] : 'Pas encore d\'animaux'}</li>
                                     {image.animals[1] && <li>{image.animals[1]}</li>}
                                     {image.animals[2] && <li>{image.animals[2]}...</li>}
@@ -245,10 +247,20 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScre
         )
     }
 
+    const displayForCross = () => {
+        if(min500) {
+            return 'block'
+        } else if (!min500 && hideMenu) {
+            return 'block'
+        } else {
+            return 'none'
+        }
+    }
+
     return (
-        <div style={{width: '100%', height: '100%', display: 'flex', gap: 10, position: 'relative', fontFamily: 'Roboto, sans-serif'}}>
+        <div style={{width: '100%', height: '100%', display: 'flex', gap: 10, position: 'relative', fontFamily: 'Futura, sans-serif'}}>
             <div style={{width: '100%', height: 50, position: 'absolute', top: 0, left: 0}}  className={s.icons_container}>
-                <div className={`${s.close_icon} ${s.close_icon_cross}`} style={{display: !hideMenu && 'none'}} onClick={() => {
+                <div className={`${s.close_icon} ${s.close_icon_cross}`} style={{display: displayForCross()}} onClick={() => {
                     if (fullScreenNav) {
                         setFullScreenNav(false)
                     } else {
@@ -261,23 +273,23 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScre
             </div>
             <div className={s.arrow} onClick={() => setFullScreenNav(true)}><ArrowForwardIosIcon/></div>
             <div className={`${s.navigation} ${hideMenu ? s.hidden__navigation : s.visible__navigation}`}
-                 style={{fontFamily: 'Roboto, sans-serif'}} onClick={() => {
+                 style={{fontFamily: 'Futura, sans-serif'}} onClick={() => {
                 if (!hideMenu) setHideMenu(!hideMenu)
             }}>
                 <div className={s.navigation__item}
                      style={activeTab === 'info' ? {textDecoration: min1000 ? 'underline' : 'none'} : {textDecoration: 'none'}}
                      onClick={() => setActiveTab('info')}><span
-                    style={{fontFamily: 'Roboto, sans-serif'}}>Accueil</span>
+                    style={{fontFamily: 'Futura, sans-serif'}}>Accueil</span>
                 </div>
                 <div className={s.navigation__item}
                      style={activeTab === 'animals' ? {textDecoration: min1000 ? 'underline' : 'none'} : {textDecoration: 'none'}}
                      onClick={() => setActiveTab('animals')}><span
-                    style={{fontFamily: 'Roboto, sans-serif'}}>Animaux</span>
+                    style={{fontFamily: 'Futura, sans-serif'}}>Animaux</span>
                 </div>
                 <div className={s.navigation__item}
                      style={activeTab === 'contact' ? {textDecoration: min1000 ? 'underline' : 'none'} : {textDecoration: 'none'}}
                      onClick={() => setActiveTab('contact')}><span
-                    style={{fontFamily: 'Roboto, sans-serif'}}>Contact</span>
+                    style={{fontFamily: 'Futura, sans-serif'}}>Contact</span>
                 </div>
                 <a className={s.navigation__item}
                    href={'/login'}
@@ -285,22 +297,22 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScre
                        textDecoration: min1000 ? 'underline' : 'none',
                        bottom: min1280 ? 40 : 20,
                        left: min1280 ? 40 : min1000 ? 20 : 40,
-                       fontSize: min1000 ? 16 : 12
+                       fontSize: fontSizeNormalTextFutura
                    } : {
                        textDecoration: 'none',
                        backgroundColor: 'black !important',
                        position: min1000 ? 'absolute' : 'unset',
                        bottom: min1280 ? 40 : 20,
                        left: min1280 ? 40 : min1000 ? 20 : 40,
-                       fontSize: min1000 ? 16 : 12
+                       fontSize: fontSizeNormalTextFutura
                    }}
                    onClick={() => setActiveTab('connection')}><span
-                    style={{fontFamily: 'Roboto, sans-serif'}}>Conexion</span>
+                    style={{fontFamily: 'Futura, sans-serif'}}>Conexion</span>
                 </a>
                 <div className={s.navigation__item}
                      style={{textDecoration: 'none'}}
                      onClick={() => setActiveTab('contact')}>
-                    <span style={{fontFamily: 'Roboto, sans-serif', fontSize: 8, justifySelf: "flex-end", position: 'absolute', bottom: 20, left: 20, textTransform: 'none'}}>Made with ❤️ by Andrei Silin</span>
+                    <span style={{fontFamily: 'Futura, sans-serif', fontSize: 8, justifySelf: "flex-end", position: 'absolute', bottom: 20, left: 20, textTransform: 'none'}}>Made with ❤️ by Andrei Silin</span>
                 </div>
             </div>
             <div style={{position: 'relative', width: '100%'}}>
@@ -312,7 +324,7 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScre
                             <div className={`${s.info__item} ${s.title} ${activeTab === 'info' ? s.visible : s.hidden}`}
                                  style={{
                                      marginBottom: 30,
-                                     fontSize: 72,
+                                     fontSize: 64,
                                      wordSpacing: '100vw',
                                      textTransform: 'uppercase',
                                      alignSelf: 'flex-start',
@@ -321,7 +333,7 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScre
                                 {min500 ? 'Bienvenue chez Arcadia' : 'Bienvenue'}
                             </div>
                             <div className={`${s.info__item} ${activeTab === 'info' ? s.visible : s.hidden}`}
-                                 style={{marginBottom: 50, fontFamily: 'Roboto, sans-serif'}}>
+                                 style={{marginBottom: 50, fontFamily: 'Futura, sans-serif'}}>
                                 Arcadia est une zoo près de la forêt de Brocéliande en Bretagne. Depuis 1960 elle offre
                                 l'occasion unique d'être
                                 le vrai spectateur de la nature, mais serez-vous assez courageux?
@@ -346,14 +358,14 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScre
                                         aria-controls="panel1-content"
                                         id="panel1-header"
                                     >
-                                        <span style={{fontFamily: 'Roboto, sans-serif'}}>Services</span>
+                                        <span style={{fontFamily: 'Futura, sans-serif'}}>Services</span>
                                     </AccordionSummary>
                                     <AccordionDetails>
                                         {isLoadingServices ? <div>Chargement...</div>
                                             : errorServices ? <div>Une erreur est survenue</div>
                                                 : services.map(service => <div style={{marginBottom: 20}}>
-                                                    <div style={{fontFamily: 'Roboto, sans-serif'}}>{service.name}</div>
-                                                    <div style={{fontSize: min1000 ? 20 : 14, fontFamily: 'Roboto, sans-serif'}}>{service.description}</div>
+                                                    <div style={{fontFamily: 'Futura, sans-serif'}}>{service.name}</div>
+                                                    <div style={{fontSize: min1000 ? 18 : 12, fontFamily: 'Futura, sans-serif'}}>{service.description}</div>
                                                 </div>)}
                                     </AccordionDetails>
                                 </Accordion>
@@ -372,14 +384,14 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScre
                                         aria-controls="panel1-content"
                                         id="panel1-header"
                                     >
-                                        <span style={{fontFamily: 'Roboto, sans-serif'}}>Habitats</span>
+                                        <span style={{fontFamily: 'Futura, sans-serif'}}>Habitats</span>
                                     </AccordionSummary>
                                     <AccordionDetails>
                                     {isLoadingHabitats ? <div>Chargement...</div>
                                             : errorHabitats ? <div>Une erreur est survenue</div>
                                                 : habitats.map(habitat => <div style={{marginBottom: 20}}>
-                                                    <div style={{fontFamily: 'Roboto, sans-serif'}}>{habitat.habitat}</div>
-                                                    <div style={{fontSize: min1000 ? 20 : 14, fontFamily: 'Roboto, sans-serif'}}>{habitat.description}</div>
+                                                    <div style={{fontFamily: 'Futura, sans-serif'}}>{habitat.habitat}</div>
+                                                    <div style={{fontSize: min1000 ? 18 : 12, fontFamily: 'Futura, sans-serif'}}>{habitat.description}</div>
                                                 </div>)}
                                     </AccordionDetails>
                                 </Accordion>
@@ -398,17 +410,17 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScre
                                         aria-controls="panel1-content"
                                         id="panel1-header"
                                     >
-                                        <span style={{fontFamily: 'Roboto, sans-serif'}}>Avis</span>
+                                        <span style={{fontFamily: 'Futura, sans-serif'}}>Avis</span>
                                     </AccordionSummary>
                                     <AccordionDetails>
-                                    <div style={{marginBottom: 20, fontFamily: 'Roboto, sans-serif'}}>Laisser votre avis</div>
-                                        <div style={{fontSize: min1000 ? 20 : 14, marginBottom: 10, fontFamily: 'Roboto, sans-serif'}}>Votre nom:</div>
+                                    <div style={{marginBottom: 20, fontFamily: 'Futura, sans-serif'}}>Laisser votre avis</div>
+                                        <div style={{fontSize: min1000 ? 18 : 12, marginBottom: 10, fontFamily: 'Futura, sans-serif'}}>Votre nom:</div>
                                         <div style={{marginBottom: 10}}>
                                             <input type="text" value={reviewPseudo}
                                                    className={s.reviewInput}
                                                    onChange={(e) => setReviewPseudo(e.target.value)}/>
                                         </div>
-                                        <div style={{fontSize: min1000 ? 20 : 14, marginBottom: 10, fontFamily: 'Roboto, sans-serif'}}>Votre message:</div>
+                                        <div style={{fontSize: min1000 ? 18 : 12, marginBottom: 10, fontFamily: 'Futura, sans-serif'}}>Votre message:</div>
                                         <div style={{marginBottom: 10}}>
                                             <textarea type="text" value={reviewText}
                                                       className={s.reviewInput}
@@ -426,16 +438,16 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScre
                                                          message: reviewText
                                                      })
                                                  }
-                                             }}><span style={{fontFamily: 'Roboto, sans-serif'}}>Envoyer</span>
+                                             }}><span style={{fontFamily: 'Futura, sans-serif'}}>Envoyer</span>
                                         </div>
-                                        <div style={{marginBottom: 20, fontFamily: 'Roboto, sans-serif'}}>Les dernièrs avis</div>
+                                        <div style={{marginBottom: 20, fontFamily: 'Futura, sans-serif'}}>Les dernièrs avis</div>
                                         {isLoadingRates ? <div>Chargement...</div>
                                             : errorRates ? <div>Une erreur est survenue</div>
                                                 : rates.map(rate => {
                                                     if (rate.status === 'Accepted') {
                                                         return (<div style={{marginBottom: 20}}>
-                                                            <div style={{marginBottom: 10, fontFamily: 'Roboto, sans-serif'}}>{rate.pseudo}</div>
-                                                            <div style={{fontSize: min1000 ? 20 : 14, fontFamily: 'Roboto, sans-serif'}}>{rate.message}</div>
+                                                            <div style={{marginBottom: 10, fontFamily: 'Futura, sans-serif'}}>{rate.pseudo}</div>
+                                                            <div style={{fontSize: min1000 ? 18 : 12, fontFamily: 'Futura, sans-serif'}}>{rate.message}</div>
                                                         </div>)
                                                     }
                                                 })}
@@ -453,14 +465,14 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScre
                                     className={`${s.info__item} ${s.title} ${activeTab === 'animals' ? s.visible : s.hidden}`}
                                     style={{
                                         marginBottom: 30,
-                                        fontSize: 72,
+                                        fontSize: 64,
                                         textTransform: 'uppercase',
                                         alignSelf: 'flex-start'
                                     }}>
                                     <span style={{fontFamily: 'Futura, sans-serif'}}>Animaux</span>
                                 </div>
                                 <div className={`${s.info__item} ${activeTab === 'animals' ? s.visible : s.hidden}`}
-                                     style={{marginBottom: 30, alignSelf: 'flex-start', fontFamily: 'Roboto, sans-serif'}}>
+                                     style={{marginBottom: 30, alignSelf: 'flex-start', fontFamily: 'Futura, sans-serif'}}>
                                     Les animaux se trouvent dans les conditions les plus proches de la nature. Le
                                     vétérinaire observe soigneusement les habitats et l'état de santé des animaux.
                                 </div>
@@ -505,7 +517,7 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScre
                                     className={`${s.info__item} ${s.title} ${activeTab === 'contact' ? s.visible : s.hidden}`}
                                     style={{
                                         marginBottom: 30,
-                                        fontSize: 72,
+                                        fontSize: 64,
                                         wordSpacing: '100vw',
                                         textTransform: 'uppercase',
                                         alignSelf: 'flex-start',
@@ -514,7 +526,7 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScre
                                     Contact
                                 </div>
                                 <div className={`${s.info__item} ${activeTab === 'contact' ? s.visible : s.hidden}`}
-                                     style={{marginBottom: 50, alignSelf: 'flex-start', fontFamily: 'Roboto, sans-serif'}}>
+                                     style={{marginBottom: 50, alignSelf: 'flex-start', fontFamily: 'Futura, sans-serif'}}>
                                     Contacter Arcadia pour demander les informations complémentaires.
                                 </div>
                                 <div style={{alignSelf: 'flex-start', width: '100%'}}>
@@ -563,22 +575,22 @@ export const ContactUs = () => {
 
     return (
         <form ref={form} onSubmit={sendEmail}>
-            <div style={{marginBottom: 5, fontSize: min1000 ? 20 : 16}}>
-                <label style={{fontFamily: 'Roboto, sans-serif'}}>Votre nom:</label>
+            <div style={{marginBottom: 5, fontSize: min1000 ? 18 : 14}}>
+                <label style={{fontFamily: 'Futura, sans-serif'}}>Votre nom:</label>
             </div>
             <div style={{marginBottom: 20}}>
                 <input type="text" value={name} required={true} onChange={(e) => setName(e.target.value)}
                        className={s.reviewInput} name="from_name"/>
             </div>
-            <div style={{marginBottom: 5, fontSize: min1000 ? 20 : 16}}>
-                <label style={{fontFamily: 'Roboto, sans-serif'}}>Email:</label>
+            <div style={{marginBottom: 5, fontSize: min1000 ? 18 : 14}}>
+                <label style={{fontFamily: 'Futura, sans-serif'}}>Email:</label>
             </div>
             <div style={{marginBottom: 20}}>
                 <input type="email" required={true} value={email} onChange={(e) => setEmail(e.target.value)}
                        className={s.reviewInput} name="email_to_answer"/>
             </div>
-            <div style={{marginBottom: 5, fontSize: min1000 ? 20 : 16}}>
-                <label style={{fontFamily: 'Roboto, sans-serif'}}>Message:</label>
+            <div style={{marginBottom: 5, fontSize: min1000 ? 18 : 14}}>
+                <label style={{fontFamily: 'Futura, sans-serif'}}>Message:</label>
             </div>
             <div style={{marginBottom: 20}}>
                 <textarea name="message" value={message} required={true} onChange={(e) => setMessage(e.target.value)}
