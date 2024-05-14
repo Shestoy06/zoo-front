@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/zoo-front/static/css/main.a52095f8.css",
+    "main.css": "/zoo-front/static/css/main.5fd55313.css",
     "main.js": "/zoo-front/static/js/main.f9483d86.js",
     "static/js/453.3895cafe.chunk.js": "/zoo-front/static/js/453.3895cafe.chunk.js",
     "static/media/vecteezy_ai-genere-bengale-tigre-majestueux-et-feroce-cache-dans_39600637.jpg": "/zoo-front/static/media/vecteezy_ai-genere-bengale-tigre-majestueux-et-feroce-cache-dans_39600637.22f71c189b744711bb31.jpg",
     "static/media/vecteezy_ai-generated-detailed-portrait-of-a-magnificent-lion_41409956.jpg": "/zoo-front/static/media/vecteezy_ai-generated-detailed-portrait-of-a-magnificent-lion_41409956.c4a099302d661a77b8d0.jpg",
     "static/media/vecteezy_ai-generated-close-up-of-an-urban-jungle-scene-nature_35846086.jpg": "/zoo-front/static/media/vecteezy_ai-generated-close-up-of-an-urban-jungle-scene-nature_35846086.dd998748c426750d1cad.jpg",
     "static/media/vecteezy_ai-genere-une-lisse-et-puissant-noir-panthere-rode-par-le_35784039.jpg": "/zoo-front/static/media/vecteezy_ai-genere-une-lisse-et-puissant-noir-panthere-rode-par-le_35784039.19f128daa736bb451be5.jpg",
-    "static/media/FUTURA55REGULAR.woff": "/zoo-front/static/media/FUTURA55REGULAR.ce546395528cb81e6c37.woff",
-    "static/media/Roboto-Regular.woff": "/zoo-front/static/media/Roboto-Regular.774f99460b8c31560a3c.woff",
-    "static/media/FUTURA55REGULAR.woff2": "/zoo-front/static/media/FUTURA55REGULAR.3adc58b79c7a05d78878.woff2",
-    "static/media/Roboto-Regular.woff2": "/zoo-front/static/media/Roboto-Regular.9429985be4f46ec8fcfc.woff2",
+    "static/media/FUTURA55REGULAR.woff?v=1.0": "/zoo-front/static/media/FUTURA55REGULAR.ce546395528cb81e6c37.woff",
+    "static/media/Roboto-Regular.woff?v=1.0": "/zoo-front/static/media/Roboto-Regular.774f99460b8c31560a3c.woff",
+    "static/media/FUTURA55REGULAR.woff2?v=1.0": "/zoo-front/static/media/FUTURA55REGULAR.3adc58b79c7a05d78878.woff2",
+    "static/media/Roboto-Regular.woff2?v=1.0": "/zoo-front/static/media/Roboto-Regular.9429985be4f46ec8fcfc.woff2",
     "index.html": "/zoo-front/index.html",
-    "main.a52095f8.css.map": "/zoo-front/static/css/main.a52095f8.css.map",
+    "main.5fd55313.css.map": "/zoo-front/static/css/main.5fd55313.css.map",
     "main.f9483d86.js.map": "/zoo-front/static/js/main.f9483d86.js.map",
     "453.3895cafe.chunk.js.map": "/zoo-front/static/js/453.3895cafe.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a52095f8.css",
+    "static/css/main.5fd55313.css",
     "static/js/main.f9483d86.js"
   ]
 }
