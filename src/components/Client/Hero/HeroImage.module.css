@@ -195,7 +195,7 @@ body {
 
 @media (max-width: 500px) {
     .main_content  {
-        font-size: 28px;
+        font-size: 48px;
 
         transform: translateX(120%);
     }

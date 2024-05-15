@@ -58,6 +58,13 @@ body, html {
   font-style: normal;
   font-display: swap;
 }
+@font-face {
+  font-family: AppleChancery;
+  src: url('/public/fonts/AppleChancery.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 
 
 

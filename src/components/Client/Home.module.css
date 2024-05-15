@@ -21,7 +21,7 @@
     animation:title 6s cubic-bezier(.41,.09,.34,.83);
     opacity: 0;
     z-index: 100;
-    font-family: "Apple Chancery", sans-serif;
+    font-family: AppleChancery, sans-serif;
 }
 
 @media (max-width: 500px) {
