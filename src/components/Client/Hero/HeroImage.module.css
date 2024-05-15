@@ -71,6 +71,15 @@ body {
     transition: all 1s ease; /* Animation transition */
 }
 
+@media (max-width: 500px) {
+    .navbar {
+        backdrop-filter: blur(0px) saturate(180%);
+        background: rgb(0,0,0);
+        background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 50%, rgba(255,255,255,0) 90%);
+    }
+
+}
+
 
 .navbar_close {
     position: absolute;
@@ -158,6 +167,12 @@ body {
     animation:text 3s ease-in;
     animation-delay: 7s;
     filter: saturate(100%);
+}
+
+@media (max-width: 500px) {
+    .layer_background {
+
+    }
 }
 
 @media (max-width: 1000px) {

@@ -45,6 +45,13 @@ body, html {
   font-display: swap;
 }
 @font-face {
+  font-family: FuturaRegular;
+  src: url('/public/fonts/FUTURA55REGULAR.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
   font-family: FuturaBold;
   src: url('/public/fonts/FUTURA75BOLD.ttf') format('ttf');
   font-weight: normal;

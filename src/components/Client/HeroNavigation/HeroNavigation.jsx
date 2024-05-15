@@ -103,7 +103,7 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScre
             widthForCard = '90%'
         }
         if (!min500 && fullScreenNav) {
-            widthForCard = '37%'
+            widthForCard = '40%'
         }
 
         return (
@@ -118,16 +118,16 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScre
                                         if (expandedCardId === index) {
                                             setExpandedCardId(null)
                                         } else {
-                                            if(min500) {
-                                                incrementViews({animalId: image.animalIdMongo})
-                                                setExpandedCardId(index)
-                                            }
+
+                                            incrementViews({animalId: image.animalIdMongo})
+                                            setExpandedCardId(index)
+
                                         }
 
                                 }}>
                                     <div style={{position: 'relative'}}>
                                         <div style={{
-                                            height: expandedCardId === index ? '100%' : 120,
+                                            height: expandedCardId === index ? '100%' : min500 ? 120 : 100,
                                             overflow: "hidden",
                                             borderRadius: 10,
                                             display: 'flex',
@@ -151,7 +151,7 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScre
                                             fontSize: !min1000 && 14
                                         }}>{image.animal}</div>
                                     </div>
-                                    <div className={(hideMenu && !min1000) || (expandedCardId && !min1000) === index ? s.animals__image_content : s.animals__image_content_hidden} >
+                                    <div className={expandedCardId === index ? s.animals__image_content : s.animals__image_content_hidden} >
                                         <div>Race: {image.animalSpecies}</div>
                                         <div>Etat de santé: {image.animalState}</div>
                                         <div>Habitat: {image.animalHabitat}</div>
@@ -261,17 +261,14 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScre
         <div style={{width: '100%', height: '100%', display: 'flex', gap: 10, position: 'relative', fontFamily: 'Futura, sans-serif'}}>
             <div style={{width: '100%', height: 50, position: 'absolute', top: 0, left: 0}}  className={s.icons_container}>
                 <div className={`${s.close_icon} ${s.close_icon_cross}`} style={{display: displayForCross()}} onClick={() => {
-                    if (fullScreenNav) {
-                        setFullScreenNav(false)
-                    } else {
-                        handleCloseNavbar()
-                    }
+
+                    handleCloseNavbar()
+
                 }}><CloseIcon/></div>
                 <div className={s.close_icon} onClick={() => {
                     setHideMenu(!hideMenu)
                 }} style={{marginTop: 40}}><MenuIcon/></div>
             </div>
-            <div className={s.arrow} onClick={() => setFullScreenNav(true)}><ArrowForwardIosIcon/></div>
             <div className={`${s.navigation} ${hideMenu ? s.hidden__navigation : s.visible__navigation}`}
                  style={{fontFamily: 'Futura, sans-serif'}} onClick={() => {
                 if (!hideMenu) setHideMenu(!hideMenu)
@@ -333,7 +330,7 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScre
                                 Bienvenue chez Arcadia
                             </div>
                             <div className={`${s.info__item} ${activeTab === 'info' ? s.visible : s.hidden}`}
-                                 style={{marginBottom: 50, fontFamily: 'Futura, sans-serif'}}>
+                                 style={{marginBottom: 50, fontFamily: 'Futura, sans-serif', alignSelf: 'flex-start'}}>
                                 Arcadia est une zoo près de la forêt de Brocéliande en Bretagne. Depuis 1960 elle offre
                                 l'occasion unique d'être
                                 le vrai spectateur de la nature, mais serez-vous assez courageux?
@@ -350,13 +347,14 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScre
                                            className={`${s.accordion} ${activeTab === 'info' ? s.visible : s.hidden}`}
                                            sx={{
                                                '& .MuiAccordionSummary-expandIconWrapper': {color: 'white'},
-                                               '& .MuiAccordionSummary-root': {gap: 2},
-                                               '& .MuiAccordionSummary-content': {justifyContent: 'end'}
+                                               '& .MuiAccordionSummary-root': {gap: 2, paddingLeft: 0},
+                                               '& .MuiAccordionSummary-content': {justifyContent: min500 ? 'end' : 'unset'}
                                            }}>
                                     <AccordionSummary
                                         expandIcon={<ExpandMoreIcon/>}
                                         aria-controls="panel1-content"
                                         id="panel1-header"
+
                                     >
                                         <span style={{fontFamily: 'Futura, sans-serif'}}>Services</span>
                                     </AccordionSummary>
@@ -364,8 +362,8 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScre
                                         {isLoadingServices ? <div>Chargement...</div>
                                             : errorServices ? <div>Une erreur est survenue</div>
                                                 : services.map(service => <div style={{marginBottom: 20}}>
-                                                    <div style={{fontFamily: 'Futura, sans-serif'}}>{service.name}</div>
-                                                    <div style={{fontSize: min1000 ? 18 : 12, fontFamily: 'Futura, sans-serif'}}>{service.description}</div>
+                                                    <div style={{fontFamily: 'Futura, sans-serif', marginBottom: 5}}>{service.name}</div>
+                                                    <div style={{fontSize: min1000 ? 18 : 14, fontFamily: 'Futura, sans-serif'}}>{service.description}</div>
                                                 </div>)}
                                     </AccordionDetails>
                                 </Accordion>
@@ -376,8 +374,8 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScre
                                            className={`${s.accordion} ${activeTab === 'info' ? s.visible : s.hidden}`}
                                            sx={{
                                                '& .MuiAccordionSummary-expandIconWrapper': {color: 'white'},
-                                               '& .MuiAccordionSummary-root': {gap: 2},
-                                               '& .MuiAccordionSummary-content': {justifyContent: 'end'}
+                                               '& .MuiAccordionSummary-root': {gap: 2, paddingLeft: 0},
+                                               '& .MuiAccordionSummary-content': {justifyContent: min500 ? 'end' : 'start'}
                                            }}>
                                     <AccordionSummary
                                         expandIcon={<ExpandMoreIcon/>}
@@ -390,8 +388,8 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScre
                                     {isLoadingHabitats ? <div>Chargement...</div>
                                             : errorHabitats ? <div>Une erreur est survenue</div>
                                                 : habitats.map(habitat => <div style={{marginBottom: 20}}>
-                                                    <div style={{fontFamily: 'Futura, sans-serif'}}>{habitat.habitat}</div>
-                                                    <div style={{fontSize: min1000 ? 18 : 12, fontFamily: 'Futura, sans-serif'}}>{habitat.description}</div>
+                                                    <div style={{fontFamily: 'Futura, sans-serif', marginBottom: 5}}>{habitat.habitat}</div>
+                                                    <div style={{fontSize: min1000 ? 18 : 14, fontFamily: 'Futura, sans-serif'}}>{habitat.description}</div>
                                                 </div>)}
                                     </AccordionDetails>
                                 </Accordion>
@@ -402,8 +400,8 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScre
                                            className={`${s.accordion} ${activeTab === 'info' ? s.visible : s.hidden}`}
                                            sx={{
                                                '& .MuiAccordionSummary-expandIconWrapper': {color: 'white'},
-                                               '& .MuiAccordionSummary-root': {gap: 2},
-                                               '& .MuiAccordionSummary-content': {justifyContent: 'end'}
+                                               '& .MuiAccordionSummary-root': {gap: 2, paddingLeft: 0},
+                                               '& .MuiAccordionSummary-content': {justifyContent: min500 ? 'end' : 'start'}
                                            }}>
                                     <AccordionSummary
                                         expandIcon={<ExpandMoreIcon/>}
@@ -414,13 +412,13 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScre
                                     </AccordionSummary>
                                     <AccordionDetails>
                                     <div style={{marginBottom: 20, fontFamily: 'Futura, sans-serif'}}>Laisser votre avis</div>
-                                        <div style={{fontSize: min1000 ? 18 : 12, marginBottom: 10, fontFamily: 'Futura, sans-serif'}}>Votre nom:</div>
+                                        <div style={{fontSize: min1000 ? 18 : 14, marginBottom: 10, fontFamily: 'Futura, sans-serif'}}>Votre nom:</div>
                                         <div style={{marginBottom: 10}}>
                                             <input type="text" value={reviewPseudo}
                                                    className={s.reviewInput}
                                                    onChange={(e) => setReviewPseudo(e.target.value)}/>
                                         </div>
-                                        <div style={{fontSize: min1000 ? 18 : 12, marginBottom: 10, fontFamily: 'Futura, sans-serif'}}>Votre message:</div>
+                                        <div style={{fontSize: min1000 ? 18 : 14, marginBottom: 10, fontFamily: 'Futura, sans-serif'}}>Votre message:</div>
                                         <div style={{marginBottom: 10}}>
                                             <textarea type="text" value={reviewText}
                                                       className={s.reviewInput}

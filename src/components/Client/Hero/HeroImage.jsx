@@ -11,7 +11,7 @@ const HeroImage = () => {
     const [activeTab, setActiveTab] = useState('info');
     const [backgroundSrc, setBackgroundSrc] = useState(image)
 
-    const [fullScreenNav, setFullScreenNav] = useState(false)
+    const [fullScreenNav, setFullScreenNav] = useState(true)
 
 
     useEffect(() => {
@@ -59,16 +59,16 @@ const HeroImage = () => {
     return (
         <section className={s.layers} style={{backdropFilter: "saturate(180%)"}}>
 
-            <div className={`${s.navbar} ${showNavbar ? 'open' : ''}`} style={{transform: showNavbar ? 'translateX(100%)' : 'translateX(-50%)', width: fullScreenNav ? '100vw' : min1000 ? '50vw' : '60vw', left: !min500 && fullScreenNav ? '-100vw' : min1000 ? '-50vw' : '-60vw'}}>
+            <div className={`${s.navbar} ${showNavbar ? 'open' : ''}`} style={{transform: showNavbar ? 'translateX(100%)' : 'translateX(-50%)', width: min500 ? '50%' : '100%', left: min500 ? '-50%' : '-100%'}}>
                 <HeroNavigation handleCloseNavbar={handleOnClick} activeTab={activeTab} setActiveTab={setActiveTab} setFullScreenNav={setFullScreenNav} fullScreenNav={fullScreenNav}/>
             </div>
             <div className={`${s.layers__container} ${s.parallax} ${s.firstAppearing}`}
                  style={{transform: `rotateX(${mousePos.y}deg) rotateY(${mousePos.x}deg)`,}}>
-                <div className={`${s.layers__item} ${s.layer_background} ${activeTab === 'info' ? s.visible : s.hidden} `} style={{backgroundImage: `url(${image})`, transform: showNavbar && !min1000 ? 'translateX(10%)' : 'translateX(0%)', transition: 'transform .6s ease'}}></div>
-                <div className={`${s.layers__item} ${s.layer_background} ${activeTab === 'animals' ? s.visible : s.hidden}`} style={{backgroundImage: `url(${image1})`, transform: showNavbar && !min1000 ? 'translateX(10%)' : 'translateX(0%)', transition: 'transform .6s ease'}}></div>
-                <div className={`${s.layers__item} ${s.layer_background} ${activeTab === 'contact' ? s.visible : s.hidden}`} style={{backgroundImage: `url(${image2})`, transform: showNavbar && !min1000 ? 'translateX(10%)' : 'translateX(0%)', transition: 'transform .6s ease'}}></div>
+                <div className={`${s.layers__item} ${s.layer_background} ${activeTab === 'info' ? s.visible : s.hidden} `} style={{backgroundImage: `url(${min500 ? image : image1})`, transform: showNavbar && !min1000 ? 'translateX(0%)' : 'translateX(0%)', transition: 'transform .6s ease'}}></div>
+                <div className={`${s.layers__item} ${s.layer_background} ${activeTab === 'animals' ? s.visible : s.hidden}`} style={{backgroundImage: `url(${image1})`, transform: showNavbar && !min1000 ? 'translateX(0%)' : 'translateX(0%)', transition: 'transform .6s ease'}}></div>
+                <div className={`${s.layers__item} ${s.layer_background} ${activeTab === 'contact' ? s.visible : s.hidden}`} style={{backgroundImage: `url(${min500 ? image2 : image1})`, transform: showNavbar && !min1000 ? 'translateX(0%)' : 'translateX(0%)', transition: 'transform .6s ease', backdropFilter: 'b'}}></div>
 
-                <div className={`${s.layers__item} ${s.layer_main}`}>
+                <div className={`${s.layers__item} ${s.layer_main}`} style={{opacity : showNavbar ? 0 : 1, transition: 'all .6s ease'}}>
                     <h1 className={`${s.main_content}`} style={showNavbar ? {transform: min1000 ? 'translateX(100%)' : min500 ? 'translateX(185%)' : 'translateX(110%)', display: 'block'} : {transform: 'translateX(0%)'}} >
                         Arcadia
                     </h1>
