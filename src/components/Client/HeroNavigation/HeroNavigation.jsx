@@ -14,7 +14,7 @@ import HabitatService from "../../../services/habitat.service";
 import toast from "react-hot-toast";
 import emailjs from '@emailjs/browser';
 import {useMediaQuery} from "@mui/material";
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import {NavLink} from "react-router-dom";
 
 const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScreenNav, fullScreenNav}) => {
 
@@ -288,8 +288,7 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScre
                      onClick={() => setActiveTab('contact')}><span
                     style={{fontFamily: 'Futura, sans-serif'}}>Contact</span>
                 </div>
-                <a className={s.navigation__item}
-                   href={'zoo-front/login'}
+                <NavLink to={'/zoo-front/login'} className={s.navigation__item}
                    style={activeTab === 'connection' ? {
                        textDecoration: min1000 ? 'underline' : 'none',
                        bottom: min1280 ? 40 : 20,
@@ -305,7 +304,7 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScre
                    }}
                    onClick={() => setActiveTab('connection')}><span
                     style={{fontFamily: 'Futura, sans-serif'}}>Connexion</span>
-                </a>
+                </NavLink>
                 <div className={s.navigation__item}
                      style={{textDecoration: 'none'}}
                      onClick={() => setActiveTab('contact')}>
