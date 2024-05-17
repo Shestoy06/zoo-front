@@ -10,7 +10,7 @@ const VetNavbar = ({logOut}) => {
     return (
         <div className={s.navbar}>
             <h2 className={s.title}>Arcadia Vet</h2>
-            <NavLink to={"/veterinarian/reports"} className={({ isActive, isPending, isTransitioning }) =>
+            <NavLink to={"zoo-front/veterinarian/reports"} className={({ isActive, isPending, isTransitioning }) =>
                 [
                     isPending ? "pending" : "",
                     isActive ? s.active : "",
@@ -18,7 +18,7 @@ const VetNavbar = ({logOut}) => {
                     s.link
                 ].join(" ")
             }> <SummarizeIcon/> Vet. Reports</NavLink>
-            <NavLink to={"/veterinarian/food"} className={({isActive, isPending, isTransitioning}) =>
+            <NavLink to={"zoo-front/veterinarian/food"} className={({isActive, isPending, isTransitioning}) =>
                 [
                     isPending ? "pending" : "",
                     isActive ? s.active : "",
@@ -26,7 +26,7 @@ const VetNavbar = ({logOut}) => {
                     s.link
                 ].join(" ")
             }> <LocalDiningIcon/>Animal food</NavLink>
-            <NavLink to={"/veterinarian/habitat"} className={({ isActive, isPending, isTransitioning }) =>
+            <NavLink to={"zoo-front/veterinarian/habitat"} className={({ isActive, isPending, isTransitioning }) =>
                 [
                     isPending ? "pending" : "",
                     isActive ? s.active : "",
@@ -34,7 +34,7 @@ const VetNavbar = ({logOut}) => {
                     s.link
                 ].join(" ")
             }> <HomeIcon/> Habitats</NavLink>
-            <NavLink to={"/login"} onClick={logOut} className={({ isActive, isPending, isTransitioning }) =>
+            <NavLink to={"zoo-front/login"} onClick={logOut} className={({ isActive, isPending, isTransitioning }) =>
                 [
                     isPending ? "pending" : "",
                     isActive ? s.active : "",

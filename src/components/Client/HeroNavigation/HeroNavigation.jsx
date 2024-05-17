@@ -289,7 +289,7 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScre
                     style={{fontFamily: 'Futura, sans-serif'}}>Contact</span>
                 </div>
                 <a className={s.navigation__item}
-                   href={'/login'}
+                   href={'zoo-front/login'}
                    style={activeTab === 'connection' ? {
                        textDecoration: min1000 ? 'underline' : 'none',
                        bottom: min1280 ? 40 : 20,
@@ -304,7 +304,7 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScre
                        fontSize: fontSizeNormalTextFutura
                    }}
                    onClick={() => setActiveTab('connection')}><span
-                    style={{fontFamily: 'Futura, sans-serif'}}>Conexion</span>
+                    style={{fontFamily: 'Futura, sans-serif'}}>Connexion</span>
                 </a>
                 <div className={s.navigation__item}
                      style={{textDecoration: 'none'}}

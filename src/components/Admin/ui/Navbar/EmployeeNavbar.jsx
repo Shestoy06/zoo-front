@@ -10,7 +10,7 @@ const EmployeeNavbar = ({logOut}) => {
     return (
         <div className={s.navbar}>
             <h2 className={s.title}>Arcadia employee</h2>
-            <NavLink to={"/employee/rates"} className={({isActive, isPending, isTransitioning}) =>
+            <NavLink to={"zoo-front/employee/rates"} className={({isActive, isPending, isTransitioning}) =>
                 [
                     isPending ? "pending" : "",
                     isActive ? s.active : "",
@@ -18,7 +18,7 @@ const EmployeeNavbar = ({logOut}) => {
                     s.link
                 ].join(" ")
             }> <StarIcon/>Rates</NavLink>
-            <NavLink to={"/employee/food"} className={({isActive, isPending, isTransitioning}) =>
+            <NavLink to={"zoo-front/employee/food"} className={({isActive, isPending, isTransitioning}) =>
                 [
                     isPending ? "pending" : "",
                     isActive ? s.active : "",
@@ -26,7 +26,7 @@ const EmployeeNavbar = ({logOut}) => {
                     s.link
                 ].join(" ")
             }> <LocalDiningIcon/>Animal food</NavLink>
-            <NavLink to={"/employee/services"} className={({ isActive, isPending, isTransitioning }) =>
+            <NavLink to={"zoo-front/employee/services"} className={({ isActive, isPending, isTransitioning }) =>
                 [
                     isPending ? "pending" : "",
                     isActive ? s.active : "",
@@ -34,7 +34,7 @@ const EmployeeNavbar = ({logOut}) => {
                     s.link
                 ].join(" ")
             }> <LocalActivityIcon/> Services</NavLink>
-            <NavLink to={"/login"} onClick={logOut} className={({ isActive, isPending, isTransitioning }) =>
+            <NavLink to={"zoo-front/login"} onClick={logOut} className={({ isActive, isPending, isTransitioning }) =>
                 [
                     isPending ? "pending" : "",
                     isActive ? s.active : "",

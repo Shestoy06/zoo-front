@@ -14,7 +14,7 @@ const Navbar = ({logOut}) => {
     return (
         <div className={s.navbar}>
             <h2 className={s.title}>Arcadia admin</h2>
-            <NavLink to={"/admin/animals"} className={({ isActive, isPending, isTransitioning }) =>
+            <NavLink to={"zoo-front/admin/animals"} className={({ isActive, isPending, isTransitioning }) =>
                 [
                     isPending ? "pending" : "",
                     isActive ? s.active : "",
@@ -22,7 +22,7 @@ const Navbar = ({logOut}) => {
                     s.link
                 ].join(" ")
             }> <PetsIcon/> Animals</NavLink>
-            <NavLink to={"/admin/animal-views"} className={({ isActive, isPending, isTransitioning }) =>
+            <NavLink to={"zoo-front/admin/animal-views"} className={({ isActive, isPending, isTransitioning }) =>
                 [
                     isPending ? "pending" : "",
                     isActive ? s.active : "",
@@ -30,7 +30,7 @@ const Navbar = ({logOut}) => {
                     s.link
                 ].join(" ")
             }> <BarChartIcon/> Animals views</NavLink>
-            <NavLink to={"/admin/habitat"} className={({ isActive, isPending, isTransitioning }) =>
+            <NavLink to={"zoo-front/admin/habitat"} className={({ isActive, isPending, isTransitioning }) =>
                 [
                     isPending ? "pending" : "",
                     isActive ? s.active : "",
@@ -38,7 +38,7 @@ const Navbar = ({logOut}) => {
                     s.link
                 ].join(" ")
             }> <HomeIcon/> Habitats</NavLink>
-            <NavLink to={"/admin/reports"} className={({ isActive, isPending, isTransitioning }) =>
+            <NavLink to={"zoo-front/admin/reports"} className={({ isActive, isPending, isTransitioning }) =>
                 [
                     isPending ? "pending" : "",
                     isActive ? s.active : "",
@@ -46,7 +46,7 @@ const Navbar = ({logOut}) => {
                     s.link
                 ].join(" ")
             }> <SummarizeIcon/> Vet. Reports</NavLink>
-            <NavLink to={"/admin/services"} className={({ isActive, isPending, isTransitioning }) =>
+            <NavLink to={"zoo-front/admin/services"} className={({ isActive, isPending, isTransitioning }) =>
                 [
                     isPending ? "pending" : "",
                     isActive ? s.active : "",
@@ -54,7 +54,7 @@ const Navbar = ({logOut}) => {
                     s.link
                 ].join(" ")
             }> <LocalActivityIcon/> Services</NavLink>
-            <NavLink to={"/admin/users"} className={({ isActive, isPending, isTransitioning }) =>
+            <NavLink to={"zoo-front/admin/users"} className={({ isActive, isPending, isTransitioning }) =>
                 [
                     isPending ? "pending" : "",
                     isActive ? s.active : "",
@@ -62,7 +62,7 @@ const Navbar = ({logOut}) => {
                     s.link
                 ].join(" ")
             }><SupervisedUserCircleIcon/> Users</NavLink>
-                <NavLink to={"/login"} onClick={logOut} className={({ isActive, isPending, isTransitioning }) =>
+                <NavLink to={"zoo-front/login"} onClick={logOut} className={({ isActive, isPending, isTransitioning }) =>
                     [
                             isPending ? "pending" : "",
                             isActive ? s.active : "",

@@ -32,6 +32,9 @@ const UserDataTable = () => {
     const {mutate: postMutation} = useMutation({
         mutationFn: (user,) => UserService.post(user),
         mutationKey: ['postUser'],
+        onError: (error) => {
+            console.log(error.error)
+        },
         onSuccess: () => {
             invalidateData()
             toast.success("New user added!")
