@@ -94,7 +94,7 @@ const UserDataTable = () => {
             type:'singleSelect',
             editable: true,
             flex: 1,
-            valueOptions: ['employee', 'veterinarian', 'admin'],
+            valueOptions: ['employee', 'veterinarian'],
         },
     ];
 
