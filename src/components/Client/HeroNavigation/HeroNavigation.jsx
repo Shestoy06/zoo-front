@@ -74,95 +74,6 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScre
 
     const fontSizeNormalTextFutura = min1000 ? 14 : 10
 
-    const showAnimals = () => {
-
-        if (isLoadingImages) return <div>Chargement...</div>
-        if (errorImages) return <div>Une erreur est survenue</div>
-
-        let widthForCard = '100%'
-
-        if (min1500) {
-            widthForCard = '25%'
-        }
-        if (!min1500 && !hideMenu) {
-            widthForCard = '40%'
-        }
-        if (!min1500 && hideMenu) {
-            widthForCard = '25%'
-        }
-        if (!min1280 && hideMenu) {
-            widthForCard = '40%'
-        }
-        if (!min1280 && !hideMenu) {
-            widthForCard = '100% !important'
-        }
-        if (!min640) {
-            widthForCard = '37%'
-        }
-        if (!min500) {
-            widthForCard = '90%'
-        }
-        if (!min500 && fullScreenNav) {
-            widthForCard = '40%'
-        }
-
-        return (
-            <div className={s.animals__images} style={{fontFamily: 'Futura, sans-serif'}}>
-                {images.map((image, index) => {
-                    if (image.animalHabitat === habitatSelected || habitatSelected === 'All') {
-                        return (
-                                <div
-                                    className={`${expandedCardId === index && s.expandedCard} ${s.animals__image}`}
-                                    style={{transition: 'all .6s ease', width: widthForCard}}
-                                    onClick={() => {
-                                        if (expandedCardId === index) {
-                                            setExpandedCardId(null)
-                                        } else {
-
-                                            incrementViews({animalId: image.animalIdMongo})
-                                            setExpandedCardId(index)
-
-                                        }
-
-                                }}>
-                                    <div style={{position: 'relative'}}>
-                                        <div style={{
-                                            height: expandedCardId === index ? '100%' : min500 ? 120 : 100,
-                                            overflow: "hidden",
-                                            borderRadius: 10,
-                                            display: 'flex',
-                                            alignItems: 'center',
-                                            justifyContent: 'center',
-                                        }}>
-                                            <img
-                                                src={`data:image/jpeg;base64,${image['files'][0]}`}
-                                                style={{
-                                                    height: '100%',
-                                                    transition: 'height .6s ease',
-
-                                                }}
-                                                alt={"Image"}/>
-                                        </div>
-
-                                        <div style={{
-                                            position: 'absolute',
-                                            left: 10,
-                                            bottom: 10,
-                                            fontSize: !min1000 && 14
-                                        }}>{image.animal}</div>
-                                    </div>
-                                    <div className={expandedCardId === index ? s.animals__image_content : s.animals__image_content_hidden} >
-                                        <div>Race: {image.animalSpecies}</div>
-                                        <div>Etat de santé: {image.animalState}</div>
-                                        <div>Habitat: {image.animalHabitat}</div>
-                                    </div>
-                                </div>
-                        )
-                    }})}
-
-            </div>
-        )
-    }
     const showHabitats = () => {
 
         if (isLoadingHabitats) return <div>Chargement...</div>
@@ -171,7 +82,7 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScre
         let widthForCard = '100%'
 
         if (min1500) {
-            widthForCard = '25%'
+            widthForCard = '40%'
         }
         if (!min1500 && !hideMenu) {
             widthForCard = '40%'
@@ -261,9 +172,7 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScre
         <div style={{width: '100%', height: '100%', display: 'flex', gap: 10, position: 'relative', fontFamily: 'Futura, sans-serif'}}>
             <div style={{width: '100%', height: 50, position: 'absolute', top: 0, left: 0}}  className={s.icons_container}>
                 <div className={`${s.close_icon} ${s.close_icon_cross}`} style={{display: displayForCross()}} onClick={() => {
-
                     handleCloseNavbar()
-
                 }}><CloseIcon/></div>
                 <div className={s.close_icon} onClick={() => {
                     setHideMenu(!hideMenu)
@@ -271,7 +180,9 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScre
             </div>
             <div className={`${s.navigation} ${hideMenu ? s.hidden__navigation : s.visible__navigation}`}
                  style={{fontFamily: 'Futura, sans-serif'}} onClick={() => {
-                if (!hideMenu) setHideMenu(!hideMenu)
+                     if(!min1000) {
+                        if (!hideMenu) setHideMenu(!hideMenu)
+                     }
             }}>
                 <div className={s.navigation__item}
                      style={activeTab === 'info' ? {textDecoration: min1000 ? 'underline' : 'none'} : {textDecoration: 'none'}}
@@ -298,8 +209,8 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScre
                        textDecoration: 'none',
                        backgroundColor: 'black !important',
                        position: min1000 ? 'absolute' : 'unset',
-                       bottom: min1280 ? 40 : 20,
-                       left: min1280 ? 40 : min1000 ? 20 : 40,
+                       bottom: 60,
+                       left: 40,
                        fontSize: fontSizeNormalTextFutura
                    }}
                    onClick={() => setActiveTab('connection')}><span
@@ -308,7 +219,7 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScre
                 <div className={s.navigation__item}
                      style={{textDecoration: 'none'}}
                      onClick={() => setActiveTab('contact')}>
-                    <span style={{fontFamily: 'Futura, sans-serif', fontSize: 8, justifySelf: "flex-end", position: 'absolute', bottom: 20, left: 20, textTransform: 'none'}}>Made with ❤️ by Andrei Silin</span>
+                    <span style={{fontFamily: 'Futura, sans-serif', fontSize: 10, justifySelf: "flex-end", position: 'absolute', bottom: min1000 ? 20 : 40, left: min1000 ? 40 : 20, textTransform: 'none'}}>Made with ❤️ by Andrei Silin</span>
                 </div>
             </div>
             <div style={{position: 'relative', width: '100%'}}>
@@ -499,7 +410,16 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScre
 
                                 </div>
 
-                                {habitatsVisible ? showHabitats() : showAnimals()}
+
+                                {habitatsVisible ? showHabitats() : isLoadingImages ? <div>Chargement...</div> : errorImages ?
+                                    <div>Erreur...</div> :
+                                    <div className={s.animals__images} style={{fontFamily: 'Futura, sans-serif'}}>
+                                        {images.map((image, index) => <ShowAnimals
+                                                index={index} min1500={min1500}
+                                                hideMenu={hideMenu} min1280={min1280} min1000={min1000} min640={min640} min500={min500} fullScreenNav={fullScreenNav} image={image}
+                                                habitatSelected={habitatSelected} expandedCardId={expandedCardId} setExpandedCardId={setExpandedCardId} incrementViews={incrementViews}/>)}
+                                    </div>
+                                }
 
                             </div>
                         </div>
@@ -597,6 +517,148 @@ export const ContactUs = () => {
         </form>
     );
 };
+
+const ShowAnimals = ({isLoadingImages, errorImages, min1500, hideMenu, min1280, min1000, min640, min500, fullScreenNav, image, habitatSelected, expandedCardId, setExpandedCardId, incrementViews, index}) => {
+
+    const [imageNumber, setImageNumber] = useState(0)
+
+    let widthForCard = '100%'
+
+    if (min1500) {
+        widthForCard = '25%'
+    }
+    if (!min1500 && !hideMenu) {
+        widthForCard = '40%'
+    }
+    if (!min1500 && hideMenu) {
+        widthForCard = '25%'
+    }
+    if (!min1280 && hideMenu) {
+        widthForCard = '40%'
+    }
+    if (!min1280 && !hideMenu) {
+        widthForCard = '100% !important'
+    }
+    if (!min640) {
+        widthForCard = '37%'
+    }
+    if (!min500) {
+        widthForCard = '90%'
+    }
+    if (!min500 && fullScreenNav) {
+        widthForCard = '40%'
+    }
+
+    if (image.animalHabitat === habitatSelected || habitatSelected === 'All') {
+                    return (<div
+                        className={`${expandedCardId === index && s.expandedCard} ${s.animals__image}`}
+                        style={{transition: 'all .6s ease', width: widthForCard}}
+                        onClick={() => {
+                            if (expandedCardId === index) {
+                                setExpandedCardId(null)
+                            } else {
+
+                                incrementViews({animalId: image.animalIdMongo})
+                                setExpandedCardId(index)
+
+                            }
+
+                        }}>
+                        <div style={{position: 'relative'}}>
+                            <div style={{
+                                height: expandedCardId === index ? '100%' : min500 ? 120 : 100,
+                                overflow: "hidden",
+                                borderRadius: 10,
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                            }}>
+                                <Arrow position={'left'} setImageNumber={setImageNumber} setExpandedCardId={setExpandedCardId} index={index} images={image['files']} imageNumber={imageNumber} visible={expandedCardId === index}/>
+                                <img
+                                    src={`data:image/jpeg;base64,${image['files'][imageNumber]}`}
+                                    style={{
+                                        height: '100%',
+                                        transition: 'height .6s ease',
+
+                                    }}
+                                    alt={"Image"}/>
+                                <Arrow position={'right'} setImageNumber={setImageNumber} setExpandedCardId={setExpandedCardId} index={index} images={image['files']} imageNumber={imageNumber} visible={expandedCardId === index}/>
+                            </div>
+
+                            <div style={{
+                                position: 'absolute',
+                                left: 10,
+                                bottom: 10,
+                                fontSize: !min1000 && 14
+                            }}>{image.animal}</div>
+                        </div>
+                        <div
+                            className={expandedCardId === index ? s.animals__image_content : s.animals__image_content_hidden}>
+                            <div>Race: {image.animalSpecies}</div>
+                            <div>Etat de santé: {image.animalState}</div>
+                            <div>Habitat: {image.animalHabitat}</div>
+                        </div>
+                    </div>)
+    }
+}
+
+const Arrow = ({position, setExpandedCardId, setImageNumber, index, imageNumber, images, visible}) => {
+
+    const increment = () => {
+        if (imageNumber === images.length - 1) {
+            setImageNumber(0)
+        } else {
+            setImageNumber(prevState => prevState + 1)
+        }
+    }
+
+    const decrement = () => {
+        if (imageNumber === 0) {
+            setImageNumber(images.length - 1)
+        }
+        else {
+            setImageNumber(prevState => prevState - 1)
+        }
+    }
+
+    return (
+        <div className={s.slider_arrow}
+            style={position === 'right' ? {
+            position: "absolute",
+            cursor: 'pointer',
+            top: '50%',
+            display: visible ? 'block' : 'none',
+            right: -20,
+            opacity: images.length === 1 ? 0.5 : 1,
+            padding: 20,
+            transform: 'translate(0, -50%) rotate(-90deg)' ,
+            color: 'white',
+                transition: '.3s all ease',
+
+        } : {
+            position: "absolute",
+            cursor: 'pointer',
+            top: '50%',
+            display: visible ? 'block' : 'none',
+            left: -20,
+            opacity: images.length === 1 ? 0.5 : 1,
+            padding: 20,
+            transform: 'translate(0, -50%) rotate(90deg)',
+            color: 'white',
+                transition: '.3s all ease',
+
+        }}
+             onClick={(e) => {
+                 e.stopPropagation()
+                 if(position === 'right') {
+                     increment()
+                 } else {
+                     decrement()
+                 }
+                 setExpandedCardId(index)
+             }}><ExpandMoreIcon/></div>
+    )
+}
 
 
 export default HeroNavigation;

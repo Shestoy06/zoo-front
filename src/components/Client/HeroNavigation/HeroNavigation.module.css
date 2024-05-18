@@ -393,10 +393,17 @@ textarea {
 }
 
 .expandedCard {
+    overflow: hidden;
     max-width: 100%;
     align-self: flex-start;
     width: calc(54% + 40px) !important;
     height: 200%;
+}
+
+@media (max-width: 500px) {
+    .expandedCard {
+        width: 100% !important;
+    }
 }
 
 .expandedCard img {
@@ -599,4 +606,10 @@ textarea {
 
 .accordion::before {
     background-color: transparent !important;
+}
+
+.slider_arrow:hover {
+    border-radius: 50%;
+    transition: .3s all ease;
+    background-color: rgba(255, 255, 255, 0.3);
 }

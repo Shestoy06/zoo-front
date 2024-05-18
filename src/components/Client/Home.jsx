@@ -31,8 +31,6 @@ const Home = () => {
 
 
 
-
-
     useEffect(() => {
         const handleMouseMove = (event) => {
             setMousePos({ x: (event.clientX - window.innerWidth/2) * -.105, y: (event.clientY - window.innerHeight) * -.101 });
