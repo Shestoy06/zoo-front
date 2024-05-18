@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/zoo-front/home/static/css/main.b3613621.css",
-    "main.js": "/zoo-front/home/static/js/main.093862fb.js",
-    "static/js/453.3895cafe.chunk.js": "/zoo-front/home/static/js/453.3895cafe.chunk.js",
-    "static/media/vecteezy_ai-genere-bengale-tigre-majestueux-et-feroce-cache-dans_39600637.jpg": "/zoo-front/home/static/media/vecteezy_ai-genere-bengale-tigre-majestueux-et-feroce-cache-dans_39600637.22f71c189b744711bb31.jpg",
-    "static/media/vecteezy_ai-generated-detailed-portrait-of-a-magnificent-lion_41409956.jpg": "/zoo-front/home/static/media/vecteezy_ai-generated-detailed-portrait-of-a-magnificent-lion_41409956.c4a099302d661a77b8d0.jpg",
-    "static/media/vecteezy_ai-generated-close-up-of-an-urban-jungle-scene-nature_35846086.jpg": "/zoo-front/home/static/media/vecteezy_ai-generated-close-up-of-an-urban-jungle-scene-nature_35846086.dd998748c426750d1cad.jpg",
-    "static/media/vecteezy_ai-genere-une-lisse-et-puissant-noir-panthere-rode-par-le_35784039.jpg": "/zoo-front/home/static/media/vecteezy_ai-genere-une-lisse-et-puissant-noir-panthere-rode-par-le_35784039.19f128daa736bb451be5.jpg",
-    "static/media/FUTURA65MEDIUM.ttf": "/zoo-front/home/static/media/FUTURA65MEDIUM.764fbf25f7a0be7fa820.ttf",
-    "static/media/FUTURA75BOLD.ttf": "/zoo-front/home/static/media/FUTURA75BOLD.4d0efa8d9a2d229ee4dc.ttf",
-    "static/media/AppleChancery.woff": "/zoo-front/home/static/media/AppleChancery.e880cf0eed554e952bf7.woff",
-    "static/media/FUTURA55REGULAR.woff": "/zoo-front/home/static/media/FUTURA55REGULAR.ce546395528cb81e6c37.woff",
-    "static/media/FUTURA65MEDIUM.woff": "/zoo-front/home/static/media/FUTURA65MEDIUM.b00d16e9ef5280c204b4.woff",
-    "static/media/Roboto-Regular.woff?v=1.0": "/zoo-front/home/static/media/Roboto-Regular.774f99460b8c31560a3c.woff",
-    "static/media/Roboto-Regular.woff2?v=1.0": "/zoo-front/home/static/media/Roboto-Regular.9429985be4f46ec8fcfc.woff2",
-    "index.html": "/zoo-front/home/index.html",
-    "main.b3613621.css.map": "/zoo-front/home/static/css/main.b3613621.css.map",
-    "main.093862fb.js.map": "/zoo-front/home/static/js/main.093862fb.js.map",
-    "453.3895cafe.chunk.js.map": "/zoo-front/home/static/js/453.3895cafe.chunk.js.map"
+    "main.css": "/zoo-front/static/css/main.bcc29d61.css",
+    "main.js": "/zoo-front/static/js/main.2ee9866b.js",
+    "static/js/453.3895cafe.chunk.js": "/zoo-front/static/js/453.3895cafe.chunk.js",
+    "static/media/vecteezy_ai-genere-bengale-tigre-majestueux-et-feroce-cache-dans_39600637.jpg": "/zoo-front/static/media/vecteezy_ai-genere-bengale-tigre-majestueux-et-feroce-cache-dans_39600637.22f71c189b744711bb31.jpg",
+    "static/media/vecteezy_ai-generated-detailed-portrait-of-a-magnificent-lion_41409956.jpg": "/zoo-front/static/media/vecteezy_ai-generated-detailed-portrait-of-a-magnificent-lion_41409956.c4a099302d661a77b8d0.jpg",
+    "static/media/vecteezy_ai-generated-close-up-of-an-urban-jungle-scene-nature_35846086.jpg": "/zoo-front/static/media/vecteezy_ai-generated-close-up-of-an-urban-jungle-scene-nature_35846086.dd998748c426750d1cad.jpg",
+    "static/media/vecteezy_ai-genere-une-lisse-et-puissant-noir-panthere-rode-par-le_35784039.jpg": "/zoo-front/static/media/vecteezy_ai-genere-une-lisse-et-puissant-noir-panthere-rode-par-le_35784039.19f128daa736bb451be5.jpg",
+    "static/media/FUTURA65MEDIUM.ttf": "/zoo-front/static/media/FUTURA65MEDIUM.764fbf25f7a0be7fa820.ttf",
+    "static/media/FUTURA75BOLD.ttf": "/zoo-front/static/media/FUTURA75BOLD.4d0efa8d9a2d229ee4dc.ttf",
+    "static/media/AppleChancery.woff": "/zoo-front/static/media/AppleChancery.e880cf0eed554e952bf7.woff",
+    "static/media/FUTURA55REGULAR.woff": "/zoo-front/static/media/FUTURA55REGULAR.ce546395528cb81e6c37.woff",
+    "static/media/FUTURA65MEDIUM.woff": "/zoo-front/static/media/FUTURA65MEDIUM.b00d16e9ef5280c204b4.woff",
+    "static/media/Roboto-Regular.woff?v=1.0": "/zoo-front/static/media/Roboto-Regular.774f99460b8c31560a3c.woff",
+    "static/media/Roboto-Regular.woff2?v=1.0": "/zoo-front/static/media/Roboto-Regular.9429985be4f46ec8fcfc.woff2",
+    "index.html": "/zoo-front/index.html",
+    "main.bcc29d61.css.map": "/zoo-front/static/css/main.bcc29d61.css.map",
+    "main.2ee9866b.js.map": "/zoo-front/static/js/main.2ee9866b.js.map",
+    "453.3895cafe.chunk.js.map": "/zoo-front/static/js/453.3895cafe.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b3613621.css",
-    "static/js/main.093862fb.js"
+    "static/css/main.bcc29d61.css",
+    "static/js/main.2ee9866b.js"
   ]
 }
