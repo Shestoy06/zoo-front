@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/zoo-front/static/css/main.bcc29d61.css",
-    "main.js": "/zoo-front/static/js/main.31944378.js",
+    "main.js": "/zoo-front/static/js/main.4a832a57.js",
     "static/js/453.3895cafe.chunk.js": "/zoo-front/static/js/453.3895cafe.chunk.js",
     "static/media/vecteezy_ai-genere-bengale-tigre-majestueux-et-feroce-cache-dans_39600637.jpg": "/zoo-front/static/media/vecteezy_ai-genere-bengale-tigre-majestueux-et-feroce-cache-dans_39600637.22f71c189b744711bb31.jpg",
     "static/media/vecteezy_ai-generated-detailed-portrait-of-a-magnificent-lion_41409956.jpg": "/zoo-front/static/media/vecteezy_ai-generated-detailed-portrait-of-a-magnificent-lion_41409956.c4a099302d661a77b8d0.jpg",
@@ -16,11 +16,11 @@
     "static/media/Roboto-Regular.woff2?v=1.0": "/zoo-front/static/media/Roboto-Regular.9429985be4f46ec8fcfc.woff2",
     "index.html": "/zoo-front/index.html",
     "main.bcc29d61.css.map": "/zoo-front/static/css/main.bcc29d61.css.map",
-    "main.31944378.js.map": "/zoo-front/static/js/main.31944378.js.map",
+    "main.4a832a57.js.map": "/zoo-front/static/js/main.4a832a57.js.map",
     "453.3895cafe.chunk.js.map": "/zoo-front/static/js/453.3895cafe.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.bcc29d61.css",
-    "static/js/main.31944378.js"
+    "static/js/main.4a832a57.js"
   ]
 }
