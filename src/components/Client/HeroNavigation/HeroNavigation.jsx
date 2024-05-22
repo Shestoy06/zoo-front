@@ -110,7 +110,7 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScre
             <div style={{display: 'flex', flexWrap: 'wrap', gap: 20, fontFamily: 'Futura, sans-serif'}}>
                 {habitats.map((image, index) =>
                         <div
-                            className={`${expandedCardId === index && s.expandedCard} ${s.animals__image}`}
+                            className={`${s.expandedCard} ${s.animals__image}`}
                             style={{transition: 'all .6s ease', width: widthForCard, maxWidth: 300}} onClick={() => {
                             setSelectedHabitat(image.habitat)
                             setHabitatsVisible(false)
