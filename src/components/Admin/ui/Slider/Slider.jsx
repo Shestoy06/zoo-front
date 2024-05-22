@@ -63,7 +63,7 @@ const Slider = ({images, animalId, setImageFile, deleteImage}) => {
                                 decrement()
                                 deleteImage({id: animalId, imageId: images[currentIndex - 1]['id']})
                             }}/>
-                            <img src={`data:image/jpeg;base64,${images[currentIndex - 1]['file']}`}
+                            <img src={images[currentIndex - 1]['file']}
                                  style={{
                                      height: 'auto',
                                      maxWidth: '100%',
