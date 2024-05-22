@@ -126,7 +126,7 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScre
                                     transition: 'all .6s ease'
                                 }}>
                                     <img
-                                        src={`data:image/jpeg;base64,${image['files'][0]}`}
+                                        src={image['files'][0]}
                                         style={{
                                             height: '100%',
                                             transition: 'height .6s ease',
@@ -399,7 +399,7 @@ const HeroNavigation = ({handleCloseNavbar, activeTab, setActiveTab, setFullScre
                                        }}>{min410 ? 'Tous les animaux' : 'Animaux'}</a>
                                 </div>
                                 <div style={{marginBottom: 30, display: 'flex', gap: 10}}>
-                                    {!isLoadingHabitats && !errorHabitats && habitats.map(habitat => <a href="#"
+                                    {!isLoadingHabitats && !errorHabitats && !habitats.error &&habitats.map(habitat => <a href="#"
                                                                                                         className={`${s.button} ${habitatSelected === habitat.habitat && !habitatsVisible && s.buttonSelected}`}
                                                                                                         style={{fontFamily: 'Futura, sans-serif'}}
                                                                                                         onClick={() => {
@@ -575,7 +575,7 @@ const ShowAnimals = ({isLoadingImages, errorImages, min1500, hideMenu, min1280, 
                             }}>
                                 <Arrow position={'left'} setImageNumber={setImageNumber} setExpandedCardId={setExpandedCardId} index={index} images={image['files']} imageNumber={imageNumber} visible={expandedCardId === index}/>
                                 <img
-                                    src={`data:image/jpeg;base64,${image['files'][imageNumber]}`}
+                                    src={image['files'][imageNumber]}
                                     style={{
                                         height: '100%',
                                         transition: 'height .6s ease',
