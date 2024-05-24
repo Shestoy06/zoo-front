@@ -2,8 +2,8 @@ import axios from "axios";
 import moment from "moment";
 
 class AnimalService {
-    URL = process.env.DATABASE_URL + '/animal'
-    NEST_URL = process.env.NEST_DATABASE_URL
+    URL = 'https://desolate-tundra-35880-c76e6faf2a0f.herokuapp.com/api/animal'
+    NEST_URL = "https://zoo-rest-back-production.up.railway.app/api/animal"
 
 
 
@@ -25,7 +25,7 @@ class AnimalService {
         return axios.get(`${this.URL}/${animalId}/image`).then(res => res.data)
     }
     async getAnimalImages() {
-        return axios.get(`${process.env.DATABASE_URL}/image`).then(res => res.data)
+        return axios.get(`https://desolate-tundra-35880-c76e6faf2a0f.herokuapp.com/api/image`).then(res => res.data)
     }
 
     async deleteAnimalImage(body) {
